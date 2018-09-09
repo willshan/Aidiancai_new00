@@ -97,12 +97,10 @@
 		5CE9B3652144C1D90010E895 /* Aidiancai_new00 */ = {
 			isa = PBXGroup;
 			children = (
-				5CE9B3662144C1D90010E895 /* AppDelegate.swift */,
-				5CE9B3682144C1D90010E895 /* ViewController.swift */,
-				5CE9B36A2144C1D90010E895 /* Main.storyboard */,
-				5CE9B36D2144C1DA0010E895 /* Assets.xcassets */,
-				5CE9B36F2144C1DA0010E895 /* LaunchScreen.storyboard */,
-				5CE9B3722144C1DA0010E895 /* Info.plist */,
+				5CE9B3962144C2270010E895 /* Other */,
+				5CE9B3952144C2170010E895 /* ViewController */,
+				5CE9B3972144C24F0010E895 /* Model */,
+				5CE9B3942144C2000010E895 /* Resource */,
 			);
 			path = Aidiancai_new00;
 			sourceTree = "<group>";
@@ -123,6 +121,40 @@
 				5CE9B3882144C1DB0010E895 /* Info.plist */,
 			);
 			path = Aidiancai_new00UITests;
+			sourceTree = "<group>";
+		};
+		5CE9B3942144C2000010E895 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9B36A2144C1D90010E895 /* Main.storyboard */,
+				5CE9B36F2144C1DA0010E895 /* LaunchScreen.storyboard */,
+				5CE9B3722144C1DA0010E895 /* Info.plist */,
+				5CE9B36D2144C1DA0010E895 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		5CE9B3952144C2170010E895 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9B3682144C1D90010E895 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5CE9B3962144C2270010E895 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9B3662144C1D90010E895 /* AppDelegate.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		5CE9B3972144C24F0010E895 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
