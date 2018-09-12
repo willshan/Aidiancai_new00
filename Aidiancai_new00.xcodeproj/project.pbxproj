@@ -14,6 +14,9 @@
 		5CE9B3712144C1DA0010E895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9B36F2144C1DA0010E895 /* LaunchScreen.storyboard */; };
 		5CE9B37C2144C1DB0010E895 /* Aidiancai_new00Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B37B2144C1DB0010E895 /* Aidiancai_new00Tests.swift */; };
 		5CE9B3872144C1DB0010E895 /* Aidiancai_new00UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */; };
+		F975DDA7214936A400763ADE /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDA6214936A400763ADE /* Dish.swift */; };
+		F975DDA921493C1A00763ADE /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDA821493C1A00763ADE /* Menu.swift */; };
+		F975DDAB2149480300763ADE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDAA2149480300763ADE /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		5CE9B3822144C1DB0010E895 /* Aidiancai_new00UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aidiancai_new00UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aidiancai_new00UITests.swift; sourceTree = "<group>"; };
 		5CE9B3882144C1DB0010E895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F975DDA6214936A400763ADE /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		F975DDA821493C1A00763ADE /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		F975DDAA2149480300763ADE /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 				5CE9B3942144C2000010E895 /* Resource */,
 				5CE9B3662144C1D90010E895 /* AppDelegate.swift */,
 				5CE9B3722144C1DA0010E895 /* Info.plist */,
+				F975DDA6214936A400763ADE /* Dish.swift */,
+				F975DDA821493C1A00763ADE /* Menu.swift */,
+				F975DDAA2149480300763ADE /* Restaurant.swift */,
 			);
 			path = Aidiancai_new00;
 			sourceTree = "<group>";
@@ -272,7 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F975DDAB2149480300763ADE /* Restaurant.swift in Sources */,
+				F975DDA7214936A400763ADE /* Dish.swift in Sources */,
 				5CE9B3692144C1D90010E895 /* ViewController.swift in Sources */,
+				F975DDA921493C1A00763ADE /* Menu.swift in Sources */,
 				5CE9B3672144C1D90010E895 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
