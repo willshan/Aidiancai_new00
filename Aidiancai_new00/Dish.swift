@@ -9,7 +9,7 @@
 import Foundation
 
 class Dish: NSObject {
-  let dishID = UUID()
+  let dishID = DishID()
   var dishName = ""
-  var menuID:UUID?  
+  weak var menuID:MenuID?
 }

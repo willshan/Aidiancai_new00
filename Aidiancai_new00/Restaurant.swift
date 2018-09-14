@@ -8,7 +8,7 @@
 
 import Foundation
 class Restaurant:NSObject {
-  let restaurantID = UUID()
+  let restaurantID = RestaurantID()
   var restaurantName = ""
-  var menuList = [Menu]()
+  var menuList = [MenuID]()
 }

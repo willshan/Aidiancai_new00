@@ -8,8 +8,8 @@
 
 import Foundation
 class Menu:NSObject {
-  let menuID = UUID()
+  let menuID = MenuID()
   var menuName = ""
-  var dishList = [Dish]()
-  var restaurantID: UUID?
+  var dishList = [DishID]()
+  weak var restaurantID: RestaurantID?
 }
