@@ -107,16 +107,11 @@
 		5CE9B3652144C1D90010E895 /* Aidiancai_new00 */ = {
 			isa = PBXGroup;
 			children = (
+				F948F2FC214BF7890039BAF3 /* Data Model */,
 				5CE9B3952144C2170010E895 /* View Controllers */,
 				5CE9B3942144C2000010E895 /* Resource */,
 				5CE9B3662144C1D90010E895 /* AppDelegate.swift */,
 				5CE9B3722144C1DA0010E895 /* Info.plist */,
-				F975DDA6214936A400763ADE /* Dish.swift */,
-				F948F2F6214BF1EF0039BAF3 /* DishID.swift */,
-				F975DDA821493C1A00763ADE /* Menu.swift */,
-				F948F2F8214BF3100039BAF3 /* MenuID.swift */,
-				F975DDAA2149480300763ADE /* Restaurant.swift */,
-				F948F2FA214BF34F0039BAF3 /* RestaurantID.swift */,
 			);
 			path = Aidiancai_new00;
 			sourceTree = "<group>";
@@ -154,6 +149,19 @@
 			children = (
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F948F2FC214BF7890039BAF3 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				F975DDA6214936A400763ADE /* Dish.swift */,
+				F948F2F6214BF1EF0039BAF3 /* DishID.swift */,
+				F975DDA821493C1A00763ADE /* Menu.swift */,
+				F948F2F8214BF3100039BAF3 /* MenuID.swift */,
+				F975DDAA2149480300763ADE /* Restaurant.swift */,
+				F948F2FA214BF34F0039BAF3 /* RestaurantID.swift */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
