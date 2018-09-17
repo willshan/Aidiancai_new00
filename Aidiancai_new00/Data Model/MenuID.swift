@@ -7,6 +7,6 @@
 //
 
 import Foundation
-class MenuID {
+class MenuID: Codable {
   let value = UUID()
 }

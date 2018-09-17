@@ -7,6 +7,6 @@
 //
 
 import Foundation
-class RestaurantID {
+class RestaurantID: Codable {
   let value = UUID()
 }

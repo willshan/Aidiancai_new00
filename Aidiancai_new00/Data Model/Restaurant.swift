@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Restaurant:NSObject {
+class Restaurant:NSObject, Codable {
   let restaurantID = RestaurantID()
   var restaurantName = ""
   var menuList = [MenuID]()

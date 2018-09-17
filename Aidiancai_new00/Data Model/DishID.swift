@@ -7,6 +7,6 @@
 //
 
 import Foundation
-class DishID {
+class DishID: Codable { //DishID是Dish的一个property，所以为了可以存取，必须遵守Codable Protocol
   let value = UUID()
 }
