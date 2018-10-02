@@ -43,17 +43,17 @@ class CategoryTableViewController: UITableViewController {
         let imageView = cell.viewWithTag(1000) as! UIImageView
         let lable = cell.viewWithTag(1010) as! UILabel
       if indexPath.row == 0 {
-        imageView.image = UIImage(named: "breakfast")
+        imageView.image = UIImage(named: "categoryBreakfast")
         lable.text = " 早餐 "
         }else if indexPath.row == 1 {
-        imageView.image = UIImage(named: "lunch")
+        imageView.image = UIImage(named: "categoryLunch")
         lable.text = " 正餐 "
       }else if indexPath.row == 2 {
-        imageView.image = UIImage(named: "snack")
+        imageView.image = UIImage(named: "categorySnack")
         lable.text = " 零食 "
       }
       imageView.clipsToBounds = true
-      imageView.layer.cornerRadius = 20
+      imageView.layer.cornerRadius = 8
       imageView.layer.shouldRasterize = true
 
         return cell

@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Category.png",
+      "filename" : "GreenStar.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "GreenStar@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "GreenStar@3x.png",
       "scale" : "3x"
     }
   ],
