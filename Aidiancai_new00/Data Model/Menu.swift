@@ -6,7 +6,7 @@
 //  Copyright © 2018年 单志伟. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class Menu:NSObject, Codable {
   let menuID = MenuID()
   var menuName = ""

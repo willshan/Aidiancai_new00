@@ -6,7 +6,7 @@
 //  Copyright © 2018年 单志伟. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class Restaurant:NSObject, Codable {
   let restaurantID = RestaurantID()
   var name = ""

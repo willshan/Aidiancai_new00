@@ -9,46 +9,16 @@
 import UIKit
 
 class StoreListTableViewController: UITableViewController {
-
-    var stores = [Restaurant]()
+    var category: Category!
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        var store = Restaurant()
-        store.name = "东来顺"
-        store.cuisine = "北京清真涮羊肉"
-        store.reviews = 200
-        store.favorableRate = 4
-        stores.append(store)
-      
-        store = Restaurant()
-        store.name = "全聚德"
-        store.cuisine = "北京烤鸭"
-        store.reviews = 2500
-        store.favorableRate = 4
-        stores.append(store)
-      
-        store = Restaurant()
-        store.name = "白记水饺"
-        store.cuisine = "水饺"
-        store.reviews = 2689
-        store.favorableRate = 3
-        stores.append(store)
-      
-        store = Restaurant()
-        store.name = "桂顺斋"
-        store.cuisine = "天津糕点"
-        store.reviews = 896586
-        store.favorableRate = 5
-        stores.append(store)
-      
-        store = Restaurant()
-        store.name = "得月楼"
-        store.cuisine = "苏帮菜"
-        store.reviews = 986
-        store.favorableRate = 2
-        stores.append(store)
+      if category.name == "早餐" {
+        title = "早点铺"
+      }else {
+        title = category.name
+      }
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,12 +30,12 @@ class StoreListTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return stores.count
+        return category.stores.count
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreListCell", for: indexPath)
-        let store = stores[indexPath.row]
+        let store = category.stores[indexPath.row]
         configureStoreInformation(for: cell, with: store)
         return cell
     }
@@ -110,7 +80,7 @@ class StoreListTableViewController: UITableViewController {
   
     func configureLogo(for cell:UITableViewCell, with store:Restaurant){
       let logo = cell.viewWithTag(2300) as! UIImageView
-      let indexOfStore = stores.index(of: store)
+      let indexOfStore = category.stores.index(of: store)
       if let logoAddress = store.logoAddress {
         if let logoImageData = try? Data(contentsOf: logoAddress){
           logo.image = UIImage(data: logoImageData)
@@ -127,15 +97,5 @@ class StoreListTableViewController: UITableViewController {
         logo.image = UIImage(named: "storeNameDeyuelou")
       }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
