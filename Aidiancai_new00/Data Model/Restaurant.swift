@@ -9,6 +9,10 @@
 import Foundation
 class Restaurant:NSObject, Codable {
   let restaurantID = RestaurantID()
-  var restaurantName = ""
+  var name = ""
+  var cuisine = ""
+  var favorableRate = 3
+  var reviews = 100
+  var logoAddress:URL?
   var menuList = [MenuID]()
 }

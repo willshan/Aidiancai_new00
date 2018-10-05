@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="2331.8840579710145" y="75"/>
         </scene>
-        <!--Category Table View Controller-->
+        <!--爱点菜-->
         <scene sceneID="BlV-bj-ear">
             <objects>
                 <tableViewController id="CyG-pS-YSj" customClass="CategoryTableViewController" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="267" id="qS1-gP-g0A">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="267" id="qS1-gP-g0A">
                                 <rect key="frame" x="0.0" y="28" width="320" height="267"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qS1-gP-g0A" id="xUr-dY-sEj">
@@ -119,6 +119,12 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="7PP-Ta-bFv" secondAttribute="height" multiplier="288:245" id="Nxj-uW-8Qo"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label userInteractionEnabled="NO" tag="1010" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je1-3B-FWI">
                                             <rect key="frame" x="32" y="47" width="72" height="34"/>
@@ -155,13 +161,13 @@
                             <outlet property="delegate" destination="CyG-pS-YSj" id="3rt-Zf-brE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tq3-vS-N90"/>
+                    <navigationItem key="navigationItem" title="爱点菜" id="tq3-vS-N90"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9q-9a-xQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2330.625" y="-619.0140845070423"/>
+            <point key="canvasLocation" x="2603" y="-1320"/>
         </scene>
-        <!--Store List Table View Controller-->
+        <!--店家-->
         <scene sceneID="Iaz-cU-dve">
             <objects>
                 <tableViewController id="elD-mA-NYx" customClass="StoreListTableViewController" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
@@ -294,10 +300,11 @@
                             <outlet property="delegate" destination="elD-mA-NYx" id="dvM-WF-wNr"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="店家" id="XEo-oo-gxo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ky-wI-tGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2784" y="-620"/>
+            <point key="canvasLocation" x="3358" y="-1320"/>
         </scene>
         <!--MealList Nav-->
         <scene sceneID="icJ-pS-FQR">
@@ -325,7 +332,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOh-5N-fqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864" y="-620"/>
+            <point key="canvasLocation" x="1794" y="-1320"/>
         </scene>
         <!--MealListVC1-->
         <scene sceneID="dqM-qW-Y7W">
