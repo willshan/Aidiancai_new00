@@ -23,6 +23,7 @@
 		F975DDAB2149480300763ADE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDAA2149480300763ADE /* Restaurant.swift */; };
 		F9D031D5214CF267008F943B /* Backup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D031D4214CF267008F943B /* Backup.storyboard */; };
 		F9EA6FFE2167089C00860D58 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA6FFD2167089C00860D58 /* Category.swift */; };
+		F9EA70002168798600860D58 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA6FFF2168798500860D58 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F975DDAA2149480300763ADE /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F9D031D4214CF267008F943B /* Backup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Backup.storyboard; sourceTree = "<group>"; };
 		F9EA6FFD2167089C00860D58 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F9EA6FFF2168798500860D58 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				F975DDAA2149480300763ADE /* Restaurant.swift */,
 				F948F2FA214BF34F0039BAF3 /* RestaurantID.swift */,
 				F9EA6FFD2167089C00860D58 /* Category.swift */,
+				F9EA6FFF2168798500860D58 /* DataModel.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				F948F2F7214BF1EF0039BAF3 /* DishID.swift in Sources */,
 				5CE9B3672144C1D90010E895 /* AppDelegate.swift in Sources */,
 				F948F2F9214BF3100039BAF3 /* MenuID.swift in Sources */,
+				F9EA70002168798600860D58 /* DataModel.swift in Sources */,
 				F948F2FB214BF34F0039BAF3 /* RestaurantID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

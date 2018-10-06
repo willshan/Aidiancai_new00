@@ -17,7 +17,8 @@ class StoreListTableViewController: UITableViewController {
       if category.name == "早餐" {
         title = "早点铺"
       }else {
-        title = category.name
+        title = category.name + "店家"
+        
       }
     }
 

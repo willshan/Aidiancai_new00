@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Category: NSObject {
+class Category: NSObject, Codable {
   var name:String
   var imagePath: URL?
   var stores = [Restaurant]()

@@ -8,96 +8,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--点餐-->
-        <scene sceneID="bPg-2w-ojc">
-            <objects>
-                <viewController id="gFB-VZ-Zsz" customClass="MainVC" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5N1-Va-4yx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunch" translatesAutoresizingMaskIntoConstraints="NO" id="r3G-9n-SPg">
-                                <rect key="frame" x="12" y="300" width="296" height="256"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="E1h-Mm-j7b" appends="YES" id="TKR-Xc-zfM"/>
-                                </connections>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="breakfast" translatesAutoresizingMaskIntoConstraints="NO" id="2UX-LB-jlw">
-                                <rect key="frame" x="12" y="32" width="296" height="256"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Iwn-Fi-Bh9" appends="YES" id="lZK-rR-EAn"/>
-                                </connections>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早餐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lej-Qg-YNI">
-                                <rect key="frame" x="28" y="48" width="56" height="42.5"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <size key="shadowOffset" width="0.0" height="-3"/>
-                            </label>
-                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="午餐/晚餐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaO-Tz-OVu">
-                                <rect key="frame" x="28" y="316" width="126" height="43.5"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <size key="shadowOffset" width="0.0" height="-4"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2UX-LB-jlw" firstAttribute="leading" secondItem="hyf-p7-l3T" secondAttribute="leading" constant="12" id="0u1-us-D4e"/>
-                            <constraint firstItem="lej-Qg-YNI" firstAttribute="leading" secondItem="2UX-LB-jlw" secondAttribute="leading" constant="16" id="6NG-8f-ISe"/>
-                            <constraint firstItem="jaO-Tz-OVu" firstAttribute="trailing" secondItem="r3G-9n-SPg" secondAttribute="trailing" constant="-154" id="DrI-GB-szp"/>
-                            <constraint firstItem="r3G-9n-SPg" firstAttribute="leading" secondItem="hyf-p7-l3T" secondAttribute="leading" constant="12" id="KSV-g6-9dx"/>
-                            <constraint firstItem="r3G-9n-SPg" firstAttribute="top" secondItem="2UX-LB-jlw" secondAttribute="bottom" constant="12" id="STr-xE-A0N"/>
-                            <constraint firstItem="jaO-Tz-OVu" firstAttribute="leading" secondItem="r3G-9n-SPg" secondAttribute="leading" constant="16" id="WEt-Pv-eDf"/>
-                            <constraint firstItem="2UX-LB-jlw" firstAttribute="top" secondItem="hyf-p7-l3T" secondAttribute="top" constant="12" id="WGf-05-vwx"/>
-                            <constraint firstItem="hyf-p7-l3T" firstAttribute="trailing" secondItem="2UX-LB-jlw" secondAttribute="trailing" constant="12" id="Y5e-rr-IAn"/>
-                            <constraint firstItem="r3G-9n-SPg" firstAttribute="height" secondItem="2UX-LB-jlw" secondAttribute="height" id="ZZJ-cb-R4V"/>
-                            <constraint firstItem="jaO-Tz-OVu" firstAttribute="top" secondItem="r3G-9n-SPg" secondAttribute="top" constant="16" id="ebP-bc-dKS"/>
-                            <constraint firstItem="lej-Qg-YNI" firstAttribute="top" secondItem="2UX-LB-jlw" secondAttribute="top" constant="16" id="oSH-KX-2OW"/>
-                            <constraint firstItem="hyf-p7-l3T" firstAttribute="trailing" secondItem="r3G-9n-SPg" secondAttribute="trailing" constant="12" id="qcC-Es-k2d"/>
-                            <constraint firstAttribute="bottom" secondItem="r3G-9n-SPg" secondAttribute="bottom" constant="12" id="uES-P9-W4h"/>
-                            <constraint firstItem="lej-Qg-YNI" firstAttribute="trailing" secondItem="2UX-LB-jlw" secondAttribute="trailing" constant="-224" id="xi0-7m-VbK"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="hyf-p7-l3T"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="点餐" id="tVO-SW-b9n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vzp-XJ-QGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Iwn-Fi-Bh9" userLabel="breakfastGesture">
-                    <connections>
-                        <segue destination="ErX-Pl-kJi" kind="show" identifier="mealListSegue1" id="Ao1-fD-Kcl"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="E1h-Mm-j7b" userLabel="lunchGesture">
-                    <connections>
-                        <segue destination="ErX-Pl-kJi" kind="show" identifier="mealListSegue2" id="grU-ou-nC7"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2331.8840579710145" y="75"/>
-        </scene>
         <!--爱点菜-->
         <scene sceneID="BlV-bj-ear">
             <objects>
@@ -318,7 +231,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.45098039220000002" green="0.78039215689999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -334,120 +247,8 @@
             </objects>
             <point key="canvasLocation" x="1794" y="-1320"/>
         </scene>
-        <!--MealListVC1-->
-        <scene sceneID="dqM-qW-Y7W">
-            <objects>
-                <viewController storyboardIdentifier="MealListVC" title="MealListVC1" automaticallyAdjustsScrollViewInsets="NO" id="ErX-Pl-kJi" customClass="MealListVC" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uHx-qd-omE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h87-Yi-1ZF">
-                                <rect key="frame" x="16" y="509" width="288" height="44"/>
-                                <color key="backgroundColor" red="0.45098039220000002" green="0.78039215689999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="lHM-DA-zkb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="下一步">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2su-C0-OzG">
-                                <rect key="frame" x="16" y="35" width="288" height="26"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nV0-SD-9Cn">
-                                        <rect key="frame" x="0.0" y="0.0" width="76" height="26"/>
-                                        <color key="backgroundColor" red="1" green="0.78039215689999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="冷菜">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfI-E6-rkW">
-                                        <rect key="frame" x="106" y="0.0" width="76" height="26"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="热菜">
-                                            <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-Qw-ZyB">
-                                        <rect key="frame" x="212" y="0.0" width="76" height="26"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="饮料">
-                                            <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="MKi-Qw-ZyB" firstAttribute="width" secondItem="nV0-SD-9Cn" secondAttribute="width" id="nOo-Ap-nMB"/>
-                                    <constraint firstItem="BfI-E6-rkW" firstAttribute="width" secondItem="nV0-SD-9Cn" secondAttribute="width" id="wUP-ch-Cdx"/>
-                                    <constraint firstAttribute="height" constant="26" id="yr1-PQ-izK"/>
-                                </constraints>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXI-L5-7XD">
-                                <rect key="frame" x="0.0" y="76" width="320" height="418"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="tXI-L5-7XD" firstAttribute="top" secondItem="2su-C0-OzG" secondAttribute="bottom" constant="15" id="6BJ-SF-mlI"/>
-                            <constraint firstItem="kqd-LM-gj5" firstAttribute="bottom" secondItem="h87-Yi-1ZF" secondAttribute="bottom" constant="15" id="Jc0-4e-HbQ"/>
-                            <constraint firstItem="2su-C0-OzG" firstAttribute="top" secondItem="kqd-LM-gj5" secondAttribute="top" constant="15" id="W3p-GG-f8u"/>
-                            <constraint firstItem="2su-C0-OzG" firstAttribute="leading" secondItem="uHx-qd-omE" secondAttribute="leadingMargin" id="YTd-oy-JuJ"/>
-                            <constraint firstItem="kqd-LM-gj5" firstAttribute="trailing" secondItem="tXI-L5-7XD" secondAttribute="trailing" id="bkg-cf-q5S"/>
-                            <constraint firstItem="h87-Yi-1ZF" firstAttribute="leading" secondItem="uHx-qd-omE" secondAttribute="leadingMargin" id="gAc-cW-g9t"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="h87-Yi-1ZF" secondAttribute="trailing" id="gfc-Pq-j5t"/>
-                            <constraint firstItem="tXI-L5-7XD" firstAttribute="leading" secondItem="kqd-LM-gj5" secondAttribute="leading" id="hnP-NS-Pxd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2su-C0-OzG" secondAttribute="trailing" id="iem-bh-Mfn"/>
-                            <constraint firstItem="h87-Yi-1ZF" firstAttribute="top" secondItem="tXI-L5-7XD" secondAttribute="bottom" constant="15" id="xAq-Dc-NHj"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="kqd-LM-gj5"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="菜单" id="YIa-nG-PRQ"/>
-                    <connections>
-                        <outlet property="coldDishesBT" destination="nV0-SD-9Cn" id="hZt-EU-yf9"/>
-                        <outlet property="drinkDishesBT" destination="MKi-Qw-ZyB" id="Wsc-4e-2lG"/>
-                        <outlet property="hotDishesBT" destination="BfI-E6-rkW" id="NlY-MD-isz"/>
-                        <outlet property="nextStepBT" destination="h87-Yi-1ZF" id="XB9-y2-Fq7"/>
-                        <outlet property="tableContentView" destination="tXI-L5-7XD" id="zhT-X1-cmm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sjp-VC-sio" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3410.144927536232" y="75.815217391304358"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="breakfast" width="355" height="292"/>
-        <image name="lunch" width="355" height="292"/>
         <image name="shoppingCart" width="16" height="16"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="grU-ou-nC7"/>
-    </inferredMetricsTieBreakers>
 </document>

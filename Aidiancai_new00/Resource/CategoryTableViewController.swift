@@ -10,53 +10,10 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
 
-    var categories = [Category]()
+    var dataModel: DataModel!
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        var newCategory = Category(name: "早餐")
-        categories.append(newCategory)
-      
-        newCategory = Category(name: "正餐")
-          var store = Restaurant()
-          store.name = "东来顺"
-          store.cuisine = "北京清真涮羊肉"
-          store.reviews = 200
-          store.favorableRate = 4
-          newCategory.stores.append(store)
-      
-          store = Restaurant()
-          store.name = "全聚德"
-          store.cuisine = "北京烤鸭"
-          store.reviews = 2500
-          store.favorableRate = 4
-          newCategory.stores.append(store)
-
-          store = Restaurant()
-          store.name = "白记水饺"
-          store.cuisine = "水饺"
-          store.reviews = 2689
-          store.favorableRate = 3
-          newCategory.stores.append(store)
-
-          store = Restaurant()
-          store.name = "桂顺斋"
-          store.cuisine = "天津糕点"
-          store.reviews = 896586
-          store.favorableRate = 5
-          newCategory.stores.append(store)
-
-          store = Restaurant()
-          store.name = "得月楼"
-          store.cuisine = "苏帮菜"
-          store.reviews = 986
-          store.favorableRate = 2
-          newCategory.stores.append(store)
-        categories.append(newCategory)
-      
-        newCategory = Category(name: "零食")
-        categories.append(newCategory)
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,12 +24,12 @@ class CategoryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return dataModel.categories.count
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        let category = categories[indexPath.row]
+        let category = dataModel.categories[indexPath.row]
       
         configureNameLabel(for:categoryCell, with:category)
         configureImage(for:categoryCell, with:category)
@@ -88,7 +45,7 @@ class CategoryTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       let storeListTableViewController = segue.destination as! StoreListTableViewController
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
-        storeListTableViewController.category = categories[indexPath.row]
+        storeListTableViewController.category = dataModel.categories[indexPath.row]
       }
     }
 
@@ -100,7 +57,7 @@ class CategoryTableViewController: UITableViewController {
 
     func configureImage(for cell:UITableViewCell, with category:Category){
       let imageView = cell.viewWithTag(1000) as! UIImageView
-      let index = categories.index(of: category)
+      let index = dataModel.categories.index(of: category)
       
       if let imagePath = category.imagePath, let data = try? Data(contentsOf: imagePath) {
         imageView.image = UIImage(data: data)

@@ -12,10 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let dataModel = DataModel()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let navigationController = window!.rootViewController as! UINavigationController
+        let categoryTableViewController = navigationController.viewControllers[0] as! CategoryTableViewController
+        categoryTableViewController.dataModel = dataModel
         return true
     }
 
