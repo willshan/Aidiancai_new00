@@ -52,7 +52,13 @@ class CategoryTableViewController: UITableViewController {
   // MARK: - 辅助函数
     func configureNameLabel(for cell:UITableViewCell, with category:Category){
         let label = cell.viewWithTag(1010) as! UILabel
-        label.text = category.name
+        let shadow = NSShadow()
+        shadow.shadowBlurRadius = 1.0;
+        shadow.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        shadow.shadowColor = UIColor.black
+        let attributedText = NSAttributedString(string: category.name, attributes: [NSAttributedStringKey.shadow : shadow])
+        label.attributedText = attributedText
+        //label.text = category.name
     }
 
     func configureImage(for cell:UITableViewCell, with category:Category){

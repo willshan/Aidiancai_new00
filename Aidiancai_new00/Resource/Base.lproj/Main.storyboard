@@ -39,12 +39,19 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label userInteractionEnabled="NO" tag="1010" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je1-3B-FWI">
-                                            <rect key="frame" x="32" y="47" width="72" height="34"/>
-                                            <color key="backgroundColor" red="0.58823529411764708" green="0.79607843137254897" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                            <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1010" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je1-3B-FWI">
+                                            <rect key="frame" x="32" y="47" width="68.5" height="33"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="28" name=".SFNSDisplay"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="8"/>
@@ -219,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="3358" y="-1320"/>
         </scene>
-        <!--MealList Nav-->
+        <!--Root Navigation-->
         <scene sceneID="icJ-pS-FQR">
             <objects>
-                <navigationController title="MealList Nav" automaticallyAdjustsScrollViewInsets="NO" id="251-Oa-jzU" sceneMemberID="viewController">
+                <navigationController title="Root Navigation" automaticallyAdjustsScrollViewInsets="NO" id="251-Oa-jzU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="点餐" image="shoppingCart" id="t2m-3x-wUt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KIB-ps-nO7">
