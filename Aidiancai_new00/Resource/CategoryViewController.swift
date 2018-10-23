@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController {
+class CategoryViewController: UITableViewController {
 
     var dataModel: DataModel!
   
@@ -43,7 +43,7 @@ class CategoryTableViewController: UITableViewController {
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      let storeListTableViewController = segue.destination as! StoreListTableViewController
+      let storeListTableViewController = segue.destination as! StoreListViewController
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
         storeListTableViewController.category = dataModel.categories[indexPath.row]
       }
@@ -53,8 +53,8 @@ class CategoryTableViewController: UITableViewController {
     func configureNameLabel(for cell:UITableViewCell, with category:Category){
         let label = cell.viewWithTag(1010) as! UILabel
         let shadow = NSShadow()
-        shadow.shadowBlurRadius = 1.0;
-        shadow.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        shadow.shadowBlurRadius = 3.0;
+        shadow.shadowOffset = CGSize(width: -5.0, height: 5.0)
         shadow.shadowColor = UIColor.black
         let attributedText = NSAttributedString(string: category.name, attributes: [NSAttributedStringKey.shadow : shadow])
         label.attributedText = attributedText

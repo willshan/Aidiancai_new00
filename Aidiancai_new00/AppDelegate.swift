@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let navigationController = window!.rootViewController as! UINavigationController
-        let categoryTableViewController = navigationController.viewControllers[0] as! CategoryTableViewController
+        let categoryTableViewController = navigationController.viewControllers[0] as! CategoryViewController
         categoryTableViewController.dataModel = dataModel
         return true
     }

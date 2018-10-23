@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoreListTableViewController: UITableViewController {
+class StoreListViewController: UITableViewController {
     var category: Category!
   
     override func viewDidLoad() {
