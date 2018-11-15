@@ -9,8 +9,15 @@
 import UIKit
 
 class Dish: NSObject, Codable { //作为NSObject的子类目的是为了可以在Dish数组中使用index(of:)方法P312和存取相关方法P313
-  let dishID = DishID()
-  weak var menuID:MenuID?
-  var dishName = ""
-  var dishPics = [String]()//图片名字的数组
+    let dishID = DishID()
+    weak var menuID:MenuID?
+    var dishName = ""
+    var dishPics = [String]()//图片名字的数组
+    
+    init?(name : String, pics : [String]?) {
+        self.dishName = name
+        if let pics = pics {
+            self.dishPics = pics
+        }
+    }
 }

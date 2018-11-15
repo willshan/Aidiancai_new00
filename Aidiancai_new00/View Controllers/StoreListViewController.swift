@@ -26,7 +26,21 @@ class StoreListViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let storeViewController = segue.destination as! StoreViewController
+        if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+            var dishs = [Dish]()
+            
+            let dish1 = Dish(name: "烤鸭", pics: ["烤鸭"])
+            let dish2 = Dish(name: "炸鸡", pics: ["炸鸡"])
+            let dish3 = Dish(name: "啤酒", pics: ["啤酒"])
+            
+            dishs = [dish1, dish2, dish3] as! [Dish]
+            
+            storeViewController.dishs = dishs
+        }
+    }
   
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,7 +49,7 @@ class StoreListViewController: UITableViewController {
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.storeListCell, for: indexPath)
         let store = category.stores[indexPath.row]
         configureStoreInformation(for: cell, with: store)
         return cell
