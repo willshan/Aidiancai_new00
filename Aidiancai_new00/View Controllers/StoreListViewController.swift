@@ -28,7 +28,7 @@ class StoreListViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let storeViewController = segue.destination as! StoreViewController
+        let storeViewController = segue.destination as! DishListViewController
         if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
             var dishs = [Dish]()
             
