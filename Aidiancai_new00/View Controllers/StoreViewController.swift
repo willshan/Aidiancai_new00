@@ -17,6 +17,8 @@ class StoreViewController: UIViewController {
     }
     
     var dishs : [Dish]!
+    var store : Restaurant!
+    var mealCatagory : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class StoreViewController: UIViewController {
         //设置tableView至Segmented controller下方
         dishsTableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         // Do any additional setup after loading the view.
+        title = "安排"+mealCatagory+".\(store.name)"
     }
 
     override func didReceiveMemoryWarning() {
