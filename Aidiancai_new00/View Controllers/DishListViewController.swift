@@ -25,7 +25,7 @@ class DishListViewController: UIViewController {
 }
 
 extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
-    //UITableViewDataSource
+    // MARK: - Methods of Table View DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dishs.count
     }
@@ -42,7 +42,7 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    //UITableViewDelegate
+    // MARK: - Methods of Table View Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 122
     }
