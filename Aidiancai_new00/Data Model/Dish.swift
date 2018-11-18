@@ -13,9 +13,13 @@ class Dish: NSObject, Codable { //作为NSObject的子类目的是为了可以�
     weak var menuID:MenuID?
     var dishName = ""
     var dishPics = [String]()//图片名字的数组
+    var dishType = ""
+    var reviews = 0
+    var favorite = false
     
-    init?(name : String, pics : [String]?) {
+    init?(name : String, pics : [String]?, dishType : String) {
         self.dishName = name
+        self.dishType = dishType
         if let pics = pics {
             self.dishPics = pics
         }

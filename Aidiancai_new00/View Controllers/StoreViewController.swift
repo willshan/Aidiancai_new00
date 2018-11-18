@@ -11,12 +11,18 @@ import UIKit
 class StoreViewController: UIViewController {
     
     @IBOutlet weak var dishsTableView: UITableView!
+    @IBOutlet weak var dishCatagory: UISegmentedControl!
+    @IBAction func dishCatagoryChanged(_ sender: Any) {
+        dishsTableView.reloadData()
+    }
     
     var dishs : [Dish]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //设置tableView至Segmented controller下方
+        dishsTableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         // Do any additional setup after loading the view.
     }
 
@@ -40,16 +46,25 @@ class StoreViewController: UIViewController {
 extension StoreViewController : UITableViewDataSource, UITableViewDelegate {
     //UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dishs.count
+        return getDishsInCatagory().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.dishCell, for: indexPath) as! DishCell
-        let dish = dishs[indexPath.row]
+
+        let dishsInCatagory = getDishsInCatagory()
+        
+        let dish = dishsInCatagory[indexPath.row]
         
         cell.name.text = dish.dishName
         if dish.dishPics.count != 0{
             cell.dishPic.image = UIImage(named: dish.dishPics.first!)
+        }
+        if dish.favorite == false {
+            cell.favourite.isHidden = true
+        }
+        else {
+            cell.favourite.isHidden = false
         }
         
         return cell
@@ -64,3 +79,33 @@ extension StoreViewController : UITableViewDataSource, UITableViewDelegate {
         return nil
     }
 }
+
+extension StoreViewController {
+    //将dish从不同的菜类中区分出来，并返回对应的数组
+    func getDishsInCatagory()-> [Dish] {
+        let kind: String
+        var count = 0
+        var dishsInCatagory = [Dish]()
+        
+        switch dishCatagory.selectedSegmentIndex {
+        case 1: kind = "冷菜"
+        case 2: kind = "热菜"
+        case 3: kind = "饮料"
+        default: kind = ""
+        }
+        if kind == "" {
+            count = dishs.count
+            dishsInCatagory = dishs
+        }
+        else {
+            for dish in dishs {
+                if dish.dishType == kind {
+                    count += 1
+                    dishsInCatagory.append(dish)
+                }
+            }
+        }
+        return dishsInCatagory
+    }
+}
+

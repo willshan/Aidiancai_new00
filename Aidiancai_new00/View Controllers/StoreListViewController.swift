@@ -29,12 +29,13 @@ class StoreListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let storeViewController = segue.destination as! StoreViewController
-        if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+        if let _ = tableView.indexPath(for: sender as! UITableViewCell){
             var dishs = [Dish]()
             
-            let dish1 = Dish(name: "烤鸭", pics: ["烤鸭"])
-            let dish2 = Dish(name: "炸鸡", pics: ["炸鸡"])
-            let dish3 = Dish(name: "啤酒", pics: ["啤酒"])
+            let dish1 = Dish(name: "烤鸭", pics: ["烤鸭"], dishType: "热菜")
+            dish1?.favorite = true
+            let dish2 = Dish(name: "炸鸡", pics: ["炸鸡"], dishType: "冷菜")
+            let dish3 = Dish(name: "啤酒", pics: ["啤酒"], dishType: "饮料")
             
             dishs = [dish1, dish2, dish3] as! [Dish]
             
