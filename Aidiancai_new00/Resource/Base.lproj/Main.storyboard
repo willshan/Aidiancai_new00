@@ -221,10 +221,10 @@
             </objects>
             <point key="canvasLocation" x="3358" y="-1320"/>
         </scene>
-        <!--Store View Controller-->
+        <!--Dish List View Controller-->
         <scene sceneID="l96-UZ-17j">
             <objects>
-                <viewController id="PFl-RJ-o9s" customClass="StoreViewController" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PFl-RJ-o9s" customClass="DishListViewController" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zcv-oI-Q8s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,7 +233,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DishCell" rowHeight="122" id="6li-QJ-jUu" customClass="DishCell" customModule="Aidiancai_new00" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DishCell" rowHeight="122" id="6li-QJ-jUu" customClass="DishCell" customModule="Aidiancai_new00" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6li-QJ-jUu" id="DqI-Kc-dtK">

@@ -15,7 +15,6 @@ class Dish: NSObject, Codable { //作为NSObject的子类目的是为了可以�
     var dishPics = [String]()//图片名字的数组
     var dishType = ""
     var reviews = 0
-    var favorite = false
     
     init?(name : String, pics : [String]?, dishType : String) {
         self.dishName = name

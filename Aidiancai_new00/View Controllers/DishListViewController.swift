@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoreViewController: UIViewController {
+class DishListViewController: UIViewController {
     
     @IBOutlet weak var dishsTableView: UITableView!
     @IBOutlet weak var dishCatagory: UISegmentedControl!
@@ -46,7 +46,7 @@ class StoreViewController: UIViewController {
 
 }
 
-extension StoreViewController : UITableViewDataSource, UITableViewDelegate {
+extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
     //UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getDishsInCatagory().count
@@ -63,12 +63,8 @@ extension StoreViewController : UITableViewDataSource, UITableViewDelegate {
         if dish.dishPics.count != 0{
             cell.dishPic.image = UIImage(named: dish.dishPics.first!)
         }
-        if dish.favorite == false {
-            cell.favourite.isHidden = true
-        }
-        else {
-            cell.favourite.isHidden = false
-        }
+        
+        cell.favourite.isHidden = false
         
         return cell
     }
@@ -83,7 +79,7 @@ extension StoreViewController : UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension StoreViewController {
+extension DishListViewController {
     //将dish从不同的菜类中区分出来，并返回对应的数组
     func getDishsInCatagory()-> [Dish] {
         let kind: String
