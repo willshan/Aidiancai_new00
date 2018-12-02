@@ -12,7 +12,7 @@ class DishCell: UITableViewCell {
 
     @IBOutlet weak var dishPic: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var favourite: UILabel!
+    @IBOutlet weak var favorite: UILabel!
     @IBOutlet weak var reviewsLabel: UILabel!
     @IBOutlet weak var add: UIButton!
     @IBOutlet weak var reviews: Reviews!

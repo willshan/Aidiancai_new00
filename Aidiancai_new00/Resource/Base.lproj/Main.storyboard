@@ -341,7 +341,7 @@
                                         <connections>
                                             <outlet property="add" destination="1MU-vp-0I3" id="bHg-4j-Xzy"/>
                                             <outlet property="dishPic" destination="cvO-dB-ZsI" id="eUR-zB-cTy"/>
-                                            <outlet property="favourite" destination="iWv-HP-IGy" id="VjU-gr-mWW"/>
+                                            <outlet property="favorite" destination="iWv-HP-IGy" id="VjU-gr-mWW"/>
                                             <outlet property="name" destination="FeS-s5-uTq" id="Emf-6W-Krf"/>
                                             <outlet property="reviews" destination="ucK-vQ-azF" id="4kN-vl-ipg"/>
                                             <outlet property="reviewsLabel" destination="bpk-eK-ZoK" id="hGv-FI-WDS"/>

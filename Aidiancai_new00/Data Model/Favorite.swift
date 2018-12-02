@@ -12,7 +12,7 @@ final class Favorite {
     
     static let share = Favorite()
 
-    private var favoriteDishID = [String : String]()
+    var favoriteDishID = [String : String]()
     //init from local disk
     
     private init() {} // Prevent clients from creating another instance.

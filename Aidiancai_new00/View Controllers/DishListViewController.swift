@@ -64,7 +64,16 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
             cell.dishPic.image = UIImage(named: dish.dishPics.first!)
         }
         
-        cell.favourite.isHidden = false
+        let favoriteDishID = Favorite.share.favoriteDishID
+        
+        cell.favorite.isHidden = true
+        
+        for dishID in favoriteDishID {
+            if dishID.key == dish.dishID.value.uuidString {
+                cell.favorite.isHidden = false
+                break
+            }
+        }
         
         return cell
     }
