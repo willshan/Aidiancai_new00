@@ -9,6 +9,7 @@
 struct CellIdentifier {
     static let storeListCell = "StoreListCell"
     static let dishCell = "DishCell"
+    static let confirmCell = "ConfirmCell"
 }
 
 struct SegueIdentifier {

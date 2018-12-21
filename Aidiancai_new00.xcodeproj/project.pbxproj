@@ -15,6 +15,8 @@
 		5CE9B3872144C1DB0010E895 /* Aidiancai_new00UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */; };
 		84130D7721A539B00024BABB /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84130D7621A539B00024BABB /* Favorite.swift */; };
 		8423489D219DADDB00CFC403 /* StructList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423489C219DADDB00CFC403 /* StructList.swift */; };
+		84592DEA21CD2BCA00D3121F /* ConfirmDishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */; };
+		84592DEC21CD34CC00D3121F /* ConfirmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84592DEB21CD34CC00D3121F /* ConfirmCell.swift */; };
 		84E99B022199CE1300EBED2D /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E99B012199CE1300EBED2D /* DishListViewController.swift */; };
 		84E99B042199CEC200EBED2D /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E99B032199CEC200EBED2D /* DishCell.swift */; };
 		84E99B062199D0AE00EBED2D /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E99B052199D0AE00EBED2D /* Reviews.swift */; };
@@ -26,7 +28,6 @@
 		F975DDA7214936A400763ADE /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDA6214936A400763ADE /* Dish.swift */; };
 		F975DDA921493C1A00763ADE /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDA821493C1A00763ADE /* Menu.swift */; };
 		F975DDAB2149480300763ADE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDAA2149480300763ADE /* Restaurant.swift */; };
-		F9D031D5214CF267008F943B /* Backup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D031D4214CF267008F943B /* Backup.storyboard */; };
 		F9EA6FFE2167089C00860D58 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA6FFD2167089C00860D58 /* Category.swift */; };
 		F9EA70002168798600860D58 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA6FFF2168798500860D58 /* DataModel.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		5CE9B3882144C1DB0010E895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84130D7621A539B00024BABB /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		8423489C219DADDB00CFC403 /* StructList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructList.swift; sourceTree = "<group>"; };
+		84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDishListViewController.swift; sourceTree = "<group>"; };
+		84592DEB21CD34CC00D3121F /* ConfirmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCell.swift; sourceTree = "<group>"; };
 		84E99B012199CE1300EBED2D /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
 		84E99B032199CEC200EBED2D /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
 		84E99B052199D0AE00EBED2D /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				F916436D2162348A00D2AD40 /* CategoryViewController.swift */,
 				F96E6749216322B200C03A0F /* StoreListViewController.swift */,
 				84E99B012199CE1300EBED2D /* DishListViewController.swift */,
+				84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */,
+				84592DEB21CD34CC00D3121F /* ConfirmCell.swift */,
 				84E99B032199CEC200EBED2D /* DishCell.swift */,
 				84E99B052199D0AE00EBED2D /* Reviews.swift */,
 			);
@@ -299,7 +304,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CE9B3712144C1DA0010E895 /* LaunchScreen.storyboard in Resources */,
-				F9D031D5214CF267008F943B /* Backup.storyboard in Resources */,
 				5CE9B36E2144C1DA0010E895 /* Assets.xcassets in Resources */,
 				5CE9B36C2144C1D90010E895 /* Main.storyboard in Resources */,
 			);
@@ -333,6 +337,8 @@
 				F975DDA921493C1A00763ADE /* Menu.swift in Sources */,
 				F916436E2162348A00D2AD40 /* CategoryViewController.swift in Sources */,
 				F948F2F7214BF1EF0039BAF3 /* DishID.swift in Sources */,
+				84592DEC21CD34CC00D3121F /* ConfirmCell.swift in Sources */,
+				84592DEA21CD2BCA00D3121F /* ConfirmDishListViewController.swift in Sources */,
 				5CE9B3672144C1D90010E895 /* AppDelegate.swift in Sources */,
 				84E99B022199CE1300EBED2D /* DishListViewController.swift in Sources */,
 				84130D7721A539B00024BABB /* Favorite.swift in Sources */,
