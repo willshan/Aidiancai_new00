@@ -667,10 +667,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-x4-fw5" userLabel="shadowView">
-                                                    <rect key="frame" x="15" y="4" width="250" height="72"/>
+                                                    <rect key="frame" x="15" y="4" width="295" height="72"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7mC-yJ-WwS">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="炸鸡" translatesAutoresizingMaskIntoConstraints="NO" id="7mC-yJ-WwS">
                                                     <rect key="frame" x="15" y="4" width="100" height="72"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="OiY-Nz-N4W"/>
@@ -694,8 +694,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注备注备注备注备注" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aI-eK-0ja">
-                                                    <rect key="frame" x="131" y="58.5" width="123" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是一个非常长的备注，有多长我也不知道" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aI-eK-0ja">
+                                                    <rect key="frame" x="131" y="58.5" width="137" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -743,13 +743,15 @@
                                                 <constraint firstItem="7aI-eK-0ja" firstAttribute="top" secondItem="WsA-sr-mYn" secondAttribute="bottom" constant="7" id="dGs-Jp-4qs"/>
                                                 <constraint firstAttribute="bottom" secondItem="7mC-yJ-WwS" secondAttribute="bottom" constant="4" id="ijV-8h-4iO"/>
                                                 <constraint firstItem="7mC-yJ-WwS" firstAttribute="leading" secondItem="cQv-Zt-twr" secondAttribute="leadingMargin" id="nMf-9y-cwh"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="PqA-x4-fw5" secondAttribute="trailing" id="oRv-ps-AZq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PqA-x4-fw5" secondAttribute="trailing" constant="-45" id="oRv-ps-AZq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="tHx-bM-S9b" secondAttribute="trailing" id="pDq-1s-bdR"/>
                                                 <constraint firstItem="tHx-bM-S9b" firstAttribute="centerY" secondItem="cQv-Zt-twr" secondAttribute="centerY" id="pHc-6V-bLu"/>
+                                                <constraint firstAttribute="trailing" secondItem="7aI-eK-0ja" secondAttribute="trailing" constant="5" id="rux-rU-A4w"/>
                                                 <constraint firstItem="WsA-sr-mYn" firstAttribute="leading" secondItem="7mC-yJ-WwS" secondAttribute="trailing" constant="16" id="uog-8s-Afe"/>
                                                 <constraint firstItem="7mC-yJ-WwS" firstAttribute="top" secondItem="cQv-Zt-twr" secondAttribute="top" constant="4" id="w7j-tw-bR9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="commentLabel" destination="7aI-eK-0ja" id="ymq-Kw-aJw"/>
                                             <outlet property="cost" destination="WsA-sr-mYn" id="LGd-6F-Ee4"/>
@@ -830,6 +832,7 @@
         <image name="plus" width="22" height="22"/>
         <image name="plus1" width="28" height="28"/>
         <image name="shoppingCart" width="16" height="16"/>
+        <image name="炸鸡" width="250" height="179"/>
         <image name="烤鸭" width="164" height="110"/>
     </resources>
 </document>
