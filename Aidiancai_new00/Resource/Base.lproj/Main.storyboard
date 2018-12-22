@@ -508,10 +508,16 @@
                                                             <constraint firstAttribute="height" constant="28" id="QvG-2g-hMm"/>
                                                         </constraints>
                                                         <state key="normal" image="minus1"/>
+                                                        <connections>
+                                                            <action selector="peopleMinus:" destination="ST9-4L-3MO" eventType="touchUpInside" id="IaC-Jy-dVc"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iu9-7v-VgI">
                                                         <rect key="frame" x="122.5" y="8" width="28" height="28"/>
                                                         <state key="normal" image="plus1"/>
+                                                        <connections>
+                                                            <action selector="peoplePlus:" destination="ST9-4L-3MO" eventType="touchUpInside" id="HQi-bc-0Wt"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1na-ih-qkf">
                                                         <rect key="frame" x="54.5" y="0.0" width="50" height="44"/>
@@ -710,6 +716,9 @@
                                                                 <constraint firstAttribute="height" constant="22" id="dPf-aw-btk"/>
                                                             </constraints>
                                                             <state key="normal" image="minus"/>
+                                                            <connections>
+                                                                <action selector="countMinus:" destination="vh0-LY-zS3" eventType="touchUpInside" id="Wgw-q4-rlE"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVT-Zp-5rW">
                                                             <rect key="frame" x="22" y="0.0" width="26" height="22"/>
@@ -724,6 +733,9 @@
                                                                 <constraint firstAttribute="width" constant="22" id="ghh-wa-zLH"/>
                                                             </constraints>
                                                             <state key="normal" backgroundImage="plus"/>
+                                                            <connections>
+                                                                <action selector="countPlus:" destination="vh0-LY-zS3" eventType="touchUpInside" id="4KI-J0-vmj"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -755,11 +767,9 @@
                                         <connections>
                                             <outlet property="commentLabel" destination="7aI-eK-0ja" id="ymq-Kw-aJw"/>
                                             <outlet property="cost" destination="WsA-sr-mYn" id="LGd-6F-Ee4"/>
-                                            <outlet property="count" destination="UVT-Zp-5rW" id="N9f-Xd-zpn"/>
-                                            <outlet property="minus" destination="nCy-Gp-8b1" id="urZ-hL-TNO"/>
+                                            <outlet property="countLabel" destination="UVT-Zp-5rW" id="N9f-Xd-zpn"/>
                                             <outlet property="name" destination="5va-eP-aN0" id="cvH-dg-KU1"/>
                                             <outlet property="photo" destination="7mC-yJ-WwS" id="JOK-pD-Rgc"/>
-                                            <outlet property="plus" destination="ohJ-51-bQD" id="QEp-o8-2mK"/>
                                             <outlet property="shadowView" destination="PqA-x4-fw5" id="DrC-1d-hI8"/>
                                         </connections>
                                     </tableViewCell>

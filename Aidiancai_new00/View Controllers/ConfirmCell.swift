@@ -12,12 +12,24 @@ class ConfirmCell: UITableViewCell {
     
     @IBOutlet var name: UILabel!
     @IBOutlet var cost: UILabel!
-    @IBOutlet var count: UILabel!
+    @IBOutlet var countLabel: UILabel!
     @IBOutlet var photo: UIImageView!
     @IBOutlet var shadowView: UIView!
-    @IBOutlet weak var minus: UIButton!
-    @IBOutlet weak var plus: UIButton!
     @IBOutlet weak var commentLabel: UILabel!
+    
+    @IBAction func countPlus(_ sender: UIButton) {
+        count += 1
+    }
+    
+    @IBAction func countMinus(_ sender: UIButton) {
+        count -= 1
+    }
+    
+    var count = 1 {
+        didSet {
+            countLabel.text = "\(count)"
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

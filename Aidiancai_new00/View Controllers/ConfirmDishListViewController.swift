@@ -28,6 +28,14 @@ class ConfirmDishListViewController: UIViewController {
     @IBOutlet weak var hotdishCountLabel: UILabel!
     @IBOutlet weak var drinkCountLabel: UILabel!
     
+    @IBAction func peoplePlus(_ sender: UIButton) {
+        peopleCount += 1
+    }
+    
+    @IBAction func peopleMinus(_ sender: UIButton) {
+        peopleCount -= 1
+    }
+    
     var coldCount = 0 {
         didSet{
             self.colddishCountLabel.text = "\(coldCount)份"
@@ -41,6 +49,11 @@ class ConfirmDishListViewController: UIViewController {
     var drinkCount : Int = 0 {
         didSet{
             self.drinkCountLabel.text = "\(drinkCount)份"
+        }
+    }
+    var peopleCount : Int = 3 {
+        didSet{
+            self.personsLabel.text = "\(peopleCount)人"
         }
     }
     

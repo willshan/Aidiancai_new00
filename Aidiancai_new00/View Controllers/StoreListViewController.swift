@@ -38,7 +38,7 @@ class StoreListViewController: UITableViewController {
             let dish2 = Dish(name: "炸鸡", pics: ["炸鸡"], dishType: "冷菜")
             let dish3 = Dish(name: "啤酒", pics: ["啤酒"], dishType: "饮料")
             
-            dishs = [dish1, dish2, dish3] as! [Dish]
+            dishs = [dish1, dish2, dish3,dish1, dish2, dish3,dish1, dish2, dish3,] as! [Dish]
             
             Favorite.share.removeAll()
             Favorite.share.addFavoriteDishID(dishID: (dish1?.dishID.value.uuidString)!)
