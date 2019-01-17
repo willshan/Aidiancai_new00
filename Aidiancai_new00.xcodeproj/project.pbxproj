@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -176,9 +176,9 @@
 				F916436D2162348A00D2AD40 /* CategoryViewController.swift */,
 				F96E6749216322B200C03A0F /* StoreListViewController.swift */,
 				84E99B012199CE1300EBED2D /* DishListViewController.swift */,
+				84E99B032199CEC200EBED2D /* DishCell.swift */,
 				84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */,
 				84592DEB21CD34CC00D3121F /* ConfirmCell.swift */,
-				84E99B032199CEC200EBED2D /* DishCell.swift */,
 				84E99B052199D0AE00EBED2D /* Reviews.swift */,
 			);
 			path = "View Controllers";
@@ -517,8 +517,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

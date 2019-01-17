@@ -286,7 +286,7 @@
                                                                 <constraint firstAttribute="height" constant="46" id="QfK-dI-OIH"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="TRX-gw-b5a"/>
                                                             </constraints>
-                                                            <state key="normal" image="add">
+                                                            <state key="normal" image="addIcon">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
@@ -832,7 +832,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="22" height="22"/>
+        <image name="addIcon" width="22" height="22"/>
         <image name="minus" width="22" height="22"/>
         <image name="minus1" width="28" height="28"/>
         <image name="plus" width="22" height="22"/>

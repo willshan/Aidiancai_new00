@@ -15,10 +15,12 @@ class DishListViewController: UIViewController {
     @IBAction func dishCatagoryChanged(_ sender: Any) {
         dishsTableView.reloadData()
     }
-    
+    //dishs are dishs in specified store
     var dishs : [Dish]!
     var store : Restaurant!
     var mealCatagory : String!
+    //dishTemp are dishs and related information, such as count, to be deliverred to confirmDishVC
+    var dishTemp = [DishTemp]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class DishListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //fake code
         let viewController = segue.destination as! ConfirmDishListViewController
-        var dishTemp = [DishTemp]()
+        
         for dish in dishs {
             dishTemp.append(DishTemp(dish: dish))
         }
@@ -65,6 +67,7 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
             cell.dishPic.image = UIImage(named: dish.dishPics.first!)
         }
         
+        //set up dish's proporty favorite
         let favoriteDishID = Favorite.share.favoriteDishID
         
         cell.favorite.isHidden = true
@@ -75,6 +78,12 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
                 break
             }
         }
+        //set up add button func
+        cell.add.addTarget(self, action: #selector(addOrRemoveDishs(_:)), for: .touchUpInside)
+//        cell.order?.isSelected = meal.cellSelected
+//        cell.order?.setTitle("加入菜单", for: .normal)
+//        cell.order?.setTitle("已加入", for: .selected)
+//        cell.order?.addTarget(self, action: #selector(addToShoppingCart(_:)), for: .touchUpInside)
         
         return cell
     }
@@ -86,6 +95,21 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
+    }
+}
+
+extension DishListViewController {
+    //add or remove dishs to or from dishTemp
+    @objc func addOrRemoveDishs(_ sender : UIButton) {
+        print("add button tapped")
+        if sender.isSelected == false {
+            sender.isSelected = true
+            sender.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
+        }
+        else {
+            sender.isSelected = false
+            sender.setImage(UIImage(named: AssetsName.addIcon), for: .normal  )
+        }
     }
 }
 

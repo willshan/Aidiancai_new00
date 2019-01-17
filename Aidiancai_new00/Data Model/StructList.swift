@@ -19,4 +19,6 @@ struct SegueIdentifier {
 struct AssetsName {
     static let greenStar = "GreenStar"
     static let grayStar = "GrayStar"
+    static let addIcon = "addIcon"
+    static let checkIcon = "checkIcon"
 }
