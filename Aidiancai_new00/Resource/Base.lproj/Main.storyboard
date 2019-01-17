@@ -716,9 +716,6 @@
                                                                 <constraint firstAttribute="height" constant="22" id="dPf-aw-btk"/>
                                                             </constraints>
                                                             <state key="normal" image="minus"/>
-                                                            <connections>
-                                                                <action selector="countMinus:" destination="vh0-LY-zS3" eventType="touchUpInside" id="Wgw-q4-rlE"/>
-                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVT-Zp-5rW">
                                                             <rect key="frame" x="22" y="0.0" width="26" height="22"/>
@@ -733,9 +730,6 @@
                                                                 <constraint firstAttribute="width" constant="22" id="ghh-wa-zLH"/>
                                                             </constraints>
                                                             <state key="normal" backgroundImage="plus"/>
-                                                            <connections>
-                                                                <action selector="countPlus:" destination="vh0-LY-zS3" eventType="touchUpInside" id="4KI-J0-vmj"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -768,6 +762,8 @@
                                             <outlet property="commentLabel" destination="7aI-eK-0ja" id="ymq-Kw-aJw"/>
                                             <outlet property="cost" destination="WsA-sr-mYn" id="LGd-6F-Ee4"/>
                                             <outlet property="countLabel" destination="UVT-Zp-5rW" id="N9f-Xd-zpn"/>
+                                            <outlet property="countMinus" destination="nCy-Gp-8b1" id="tv9-ok-kAZ"/>
+                                            <outlet property="countPlus" destination="ohJ-51-bQD" id="iQq-yS-GTB"/>
                                             <outlet property="name" destination="5va-eP-aN0" id="cvH-dg-KU1"/>
                                             <outlet property="photo" destination="7mC-yJ-WwS" id="JOK-pD-Rgc"/>
                                             <outlet property="shadowView" destination="PqA-x4-fw5" id="DrC-1d-hI8"/>

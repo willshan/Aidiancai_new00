@@ -17,6 +17,7 @@
 		8423489D219DADDB00CFC403 /* StructList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423489C219DADDB00CFC403 /* StructList.swift */; };
 		84592DEA21CD2BCA00D3121F /* ConfirmDishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */; };
 		84592DEC21CD34CC00D3121F /* ConfirmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84592DEB21CD34CC00D3121F /* ConfirmCell.swift */; };
+		84592DEE21CDD33500D3121F /* DishTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84592DED21CDD33500D3121F /* DishTemp.swift */; };
 		84E99B022199CE1300EBED2D /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E99B012199CE1300EBED2D /* DishListViewController.swift */; };
 		84E99B042199CEC200EBED2D /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E99B032199CEC200EBED2D /* DishCell.swift */; };
 		84E99B062199D0AE00EBED2D /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E99B052199D0AE00EBED2D /* Reviews.swift */; };
@@ -66,6 +67,7 @@
 		8423489C219DADDB00CFC403 /* StructList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructList.swift; sourceTree = "<group>"; };
 		84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDishListViewController.swift; sourceTree = "<group>"; };
 		84592DEB21CD34CC00D3121F /* ConfirmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCell.swift; sourceTree = "<group>"; };
+		84592DED21CDD33500D3121F /* DishTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTemp.swift; sourceTree = "<group>"; };
 		84E99B012199CE1300EBED2D /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
 		84E99B032199CEC200EBED2D /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
 		84E99B052199D0AE00EBED2D /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				F975DDA6214936A400763ADE /* Dish.swift */,
+				84592DED21CDD33500D3121F /* DishTemp.swift */,
 				84130D7621A539B00024BABB /* Favorite.swift */,
 				F948F2F6214BF1EF0039BAF3 /* DishID.swift */,
 				F975DDA821493C1A00763ADE /* Menu.swift */,
@@ -267,19 +270,22 @@
 				TargetAttributes = {
 					5CE9B3622144C1D90010E895 = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
 					};
 					5CE9B3762144C1DB0010E895 = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 5CE9B3622144C1D90010E895;
 					};
 					5CE9B3812144C1DB0010E895 = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 5CE9B3622144C1D90010E895;
 					};
 				};
 			};
 			buildConfigurationList = 5CE9B35E2144C1D90010E895 /* Build configuration list for PBXProject "Aidiancai_new00" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -339,6 +345,7 @@
 				F948F2F7214BF1EF0039BAF3 /* DishID.swift in Sources */,
 				84592DEC21CD34CC00D3121F /* ConfirmCell.swift in Sources */,
 				84592DEA21CD2BCA00D3121F /* ConfirmDishListViewController.swift in Sources */,
+				84592DEE21CDD33500D3121F /* DishTemp.swift in Sources */,
 				5CE9B3672144C1D90010E895 /* AppDelegate.swift in Sources */,
 				84E99B022199CE1300EBED2D /* DishListViewController.swift in Sources */,
 				84130D7721A539B00024BABB /* Favorite.swift in Sources */,
@@ -521,12 +528,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BH36CK7LN;
+				DEVELOPMENT_TEAM = KTJ62Z88V4;
 				INFOPLIST_FILE = Aidiancai_new00/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FS.Aidiancai-new00";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -539,12 +543,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BH36CK7LN;
+				DEVELOPMENT_TEAM = KTJ62Z88V4;
 				INFOPLIST_FILE = Aidiancai_new00/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FS.Aidiancai-new00";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -560,11 +561,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTJ62Z88V4;
 				INFOPLIST_FILE = Aidiancai_new00Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FS.Aidiancai-new00Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -581,11 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTJ62Z88V4;
 				INFOPLIST_FILE = Aidiancai_new00Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FS.Aidiancai-new00Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -601,11 +594,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTJ62Z88V4;
 				INFOPLIST_FILE = Aidiancai_new00UITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FS.Aidiancai-new00UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -621,11 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTJ62Z88V4;
 				INFOPLIST_FILE = Aidiancai_new00UITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FS.Aidiancai-new00UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

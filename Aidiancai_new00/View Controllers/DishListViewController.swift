@@ -35,13 +35,14 @@ class DishListViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        //fake code
         let viewController = segue.destination as! ConfirmDishListViewController
-        viewController.dishs = dishs
+        var dishTemp = [DishTemp]()
+        for dish in dishs {
+            dishTemp.append(DishTemp(dish: dish))
+        }
+        viewController.dishTemp = dishTemp
         viewController.store = store
     }
 }
