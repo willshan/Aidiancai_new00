@@ -69,11 +69,7 @@ class ConfirmDishListViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardWillChange(_:)),
                                                name: .UIKeyboardWillChangeFrame, object: nil)
-        //set up delegate
-        commentTextFiled.delegate = self
-        
-        confirmOrderButton.isEnabled = false
-        
+
         if mealCategory == nil {
             mealCategory = "晚餐"
         }
@@ -92,7 +88,10 @@ class ConfirmDishListViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         updateCountForDishLabel()
+        updateConfirmButton()
         
+        //set up delegate
+        commentTextFiled.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -131,11 +130,6 @@ extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSo
         }
         cell.name.text = dish.dish.dishName
         cell.commentLabel.text = dish.comment
-        
-        if indexPath.row == 1 {
-            cell.commentLabel.text = "这是一个测试"
-            dishTemp[indexPath.row].comment = cell.commentLabel.text!
-        }
         
         if cell.commentLabel.text == "" {
             cell.tintColor = UIColor.lightGray
@@ -213,17 +207,6 @@ extension ConfirmDishListViewController {
 }
 
 extension ConfirmDishListViewController {
-    func updateOrderBT() {
-        if dishTemp.count == 0 || timeSelectionButton.titleLabel?.text == "选择时间" {
-            self.confirmOrderButton.isEnabled = false
-            self.confirmOrderButton.backgroundColor = UIColor.lightGray
-        }
-        else {
-            self.confirmOrderButton.isEnabled = true
-            self.confirmOrderButton.backgroundColor = UIColor.blue
-        }
-    }
-    
     @objc func minusCount(_ sender : UIButton) {
         updateDishCount(sender: sender, plus: false)
     }
@@ -284,6 +267,29 @@ extension ConfirmDishListViewController {
         let tableView = superTableView()
         let index = tableView?.indexPath(for: cell)!
         return index
+    }
+//
+//    func updateOrderBT() {
+//        if dishTemp.count == 0 || timeSelectionButton.titleLabel?.text == "选择时间" {
+//            self.confirmOrderButton.isEnabled = false
+//            self.confirmOrderButton.backgroundColor = UIColor.lightGray
+//        }
+//        else {
+//            self.confirmOrderButton.isEnabled = true
+//            self.confirmOrderButton.backgroundColor = UIColor.blue
+//        }
+//    }
+//
+//
+    func updateConfirmButton() {
+        if dishTemp.count == 0 {
+            confirmOrderButton.isEnabled = false
+            confirmOrderButton.backgroundColor = UIColor.lightGray
+        }
+        else {
+            confirmOrderButton.isEnabled = true
+            confirmOrderButton.backgroundColor = UIColor.blue
+        }
     }
 }
 

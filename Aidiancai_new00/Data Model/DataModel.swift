@@ -81,6 +81,4 @@ class DataModel {
         print("Error decoding categories array!")
       }
   }
-  
-  
 }
