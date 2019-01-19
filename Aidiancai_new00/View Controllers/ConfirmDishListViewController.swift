@@ -111,6 +111,7 @@ class ConfirmDishListViewController: UIViewController {
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
+        print("the instance of ConfirmDishListVC was deinited")
     }
 }
 

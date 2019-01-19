@@ -46,20 +46,9 @@ class DishListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let viewController = segue.destination as! ConfirmDishListViewController
-        //add slectedDishID into dishTemp
-//        dishTemp.removeAll() //clear dishTemp first
-//        let slectedDishID = OrderTemp.share.dishIDinOrder
-//        for dishID in slectedDishID {
-//            for dish in dishes {
-//                if dishID.value == dish.dishID.value.uuidString {
-//                    dishTemp.append(DishTemp(dish: dish))
-//                    break
-//                }
-//            }
-//        }
-//        print("\(dishTemp)")
-        let dishDic = OrderTemp.share.dishInOrder
-        var dishTemp = [DishTemp]()
+
+        let dishDic = OrderTemp.share.dishInOrder //reference type
+        var dishTemp = [DishTemp]() //reference type
         for dish in dishDic {
             dishTemp.append(dish.value)
         }
@@ -102,7 +91,7 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         cell.add.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
         cell.add.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
         for orderedDish in orderedDishDic {
-            print("\(orderedDish.key) vs \(dish.dishID.value.uuidString)")
+//            print("\(orderedDish.key) vs \(dish.dishID.value.uuidString)")
             if orderedDish.key == dish.dishID.value.uuidString {
                 cell.add.isSelected = true
                 break
