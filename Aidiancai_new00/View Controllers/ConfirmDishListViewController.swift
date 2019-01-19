@@ -61,9 +61,16 @@ class ConfirmDishListViewController: UIViewController {
     var dishTemp : [DishTemp]!
     var store : Restaurant!
     var commentEditing = false
+    var indexTemp = IndexPath() //to record cell index temporary
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //register notification center
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillChange(_:)),
+                                               name: .UIKeyboardWillChangeFrame, object: nil)
+        //set up delegate
+        commentTextFiled.delegate = self
         
         confirmOrderButton.isEnabled = false
         
@@ -103,6 +110,9 @@ class ConfirmDishListViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         setupView1View2()
     }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSource {
@@ -124,6 +134,7 @@ extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSo
         
         if indexPath.row == 1 {
             cell.commentLabel.text = "这是一个测试"
+            dishTemp[indexPath.row].comment = cell.commentLabel.text!
         }
         
         if cell.commentLabel.text == "" {
@@ -141,8 +152,16 @@ extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        commentSuperView.isHidden = false
-        
+        if commentSuperView.isHidden == false {
+            commentSuperView.isHidden = true
+            commentTextFiled.resignFirstResponder() //hide keyboard
+        }
+        else {
+            commentSuperView.isHidden = false
+            commentTextFiled.becomeFirstResponder() //awake keyboard
+            self.indexTemp = indexPath
+            commentTextFiled.text = dishTemp[indexPath.row].comment
+        }
     }
 }
 
@@ -169,6 +188,27 @@ extension ConfirmDishListViewController {
         maskLayer2.frame = view2.bounds
         maskLayer2.path = maskPath2.cgPath
         view2.layer.mask = maskLayer2
+    }
+    
+    @objc func keyboardWillChange(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+            let value = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
+            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double,
+            let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt {
+            
+            let frame = value.cgRectValue
+            let intersection = frame.intersection(self.view.frame)
+            
+            //self.view.setNeedsLayout()
+            //改变上约束
+            self.bottomConstraint.constant = intersection.height
+            UIView.animate(withDuration: duration, delay: 0.0,
+                           options: UIViewAnimationOptions(rawValue: curve), animations: {
+                            
+                            self.view.layoutIfNeeded()
+                            
+            }, completion: nil)
+        }
     }
 }
 
@@ -244,5 +284,17 @@ extension ConfirmDishListViewController {
         let tableView = superTableView()
         let index = tableView?.indexPath(for: cell)!
         return index
+    }
+}
+
+extension ConfirmDishListViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        print("\(commentEditing)")
+        textField.resignFirstResponder()
+        commentSuperView.isHidden = true
+        self.dishTemp[indexTemp.row].comment = commentTextFiled.text!
+        self.tableView.reloadData()
+        return true
     }
 }
