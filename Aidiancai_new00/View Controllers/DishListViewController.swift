@@ -38,12 +38,20 @@ class DishListViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //fake code
-        let viewController = segue.destination as! ConfirmDishListViewController
         
-        for dish in dishs {
-            dishTemp.append(DishTemp(dish: dish))
+        let viewController = segue.destination as! ConfirmDishListViewController
+        //add slectedDishID into dishTemp
+        dishTemp.removeAll() //clear dishTemp first
+        let slectedDishID = Select.share.selectedDishID
+        for dishID in slectedDishID {
+            for dish in dishs {
+                if dishID.value == dish.dishID.value.uuidString {
+                    dishTemp.append(DishTemp(dish: dish))
+                    break
+                }
+            }
         }
+        print("\(dishTemp)")
         viewController.dishTemp = dishTemp
         viewController.store = store
     }
