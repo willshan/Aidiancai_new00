@@ -268,19 +268,7 @@ extension ConfirmDishListViewController {
         let index = tableView?.indexPath(for: cell)!
         return index
     }
-//
-//    func updateOrderBT() {
-//        if dishTemp.count == 0 || timeSelectionButton.titleLabel?.text == "选择时间" {
-//            self.confirmOrderButton.isEnabled = false
-//            self.confirmOrderButton.backgroundColor = UIColor.lightGray
-//        }
-//        else {
-//            self.confirmOrderButton.isEnabled = true
-//            self.confirmOrderButton.backgroundColor = UIColor.blue
-//        }
-//    }
-//
-//
+
     func updateConfirmButton() {
         if dishTemp.count == 0 {
             confirmOrderButton.isEnabled = false

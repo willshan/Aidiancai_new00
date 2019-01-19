@@ -20,15 +20,21 @@ class DishListViewController: UIViewController {
     var restaurant : Restaurant!
     var mealCatagory : String!
     //dishTemp are dishes and related information, such as count, to be deliverred to confirmDishVC
-    var dishTemp = [DishTemp]()
+//    var dishTemp = [DishTemp]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //设置tableView至Segmented controller下方
         dishesTableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         // Do any additional setup after loading the view.
         title = "安排"+mealCatagory+".\(restaurant.name)"
+        
+        //check the restaurant is orderred, if yes load order, if no clear old order and creat new empty
+        guard OrderTemp.share.restaurantID == restaurant.restaurantID.value.uuidString else {
+            OrderTemp.share.restaurantID = restaurant.restaurantID.value.uuidString
+            OrderTemp.share.removeAll()
+            return
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,17 +47,22 @@ class DishListViewController: UIViewController {
         
         let viewController = segue.destination as! ConfirmDishListViewController
         //add slectedDishID into dishTemp
-        dishTemp.removeAll() //clear dishTemp first
-        let slectedDishID = Select.share.selectedDishID
-        for dishID in slectedDishID {
-            for dish in dishes {
-                if dishID.value == dish.dishID.value.uuidString {
-                    dishTemp.append(DishTemp(dish: dish))
-                    break
-                }
-            }
+//        dishTemp.removeAll() //clear dishTemp first
+//        let slectedDishID = OrderTemp.share.dishIDinOrder
+//        for dishID in slectedDishID {
+//            for dish in dishes {
+//                if dishID.value == dish.dishID.value.uuidString {
+//                    dishTemp.append(DishTemp(dish: dish))
+//                    break
+//                }
+//            }
+//        }
+//        print("\(dishTemp)")
+        let dishDic = OrderTemp.share.dishInOrder
+        var dishTemp = [DishTemp]()
+        for dish in dishDic {
+            dishTemp.append(dish.value)
         }
-        print("\(dishTemp)")
         viewController.dishTemp = dishTemp
         viewController.restaurant = restaurant
     }
@@ -86,12 +97,13 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         }
         
         //set up dish's property isSelected
-        let selectedDishID = Select.share.selectedDishID
+        let orderedDishDic = OrderTemp.share.dishInOrder
         cell.add.isSelected = false
         cell.add.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
         cell.add.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
-        for dishID in selectedDishID {
-            if dishID.key == dish.dishID.value.uuidString {
+        for orderedDish in orderedDishDic {
+            print("\(orderedDish.key) vs \(dish.dishID.value.uuidString)")
+            if orderedDish.key == dish.dishID.value.uuidString {
                 cell.add.isSelected = true
                 break
             }
@@ -128,22 +140,36 @@ extension DishListViewController {
         return nil
     }
     
+    //get dish
+    func getDishFromCell(cell : UITableViewCell) -> Dish? {
+        //get the tableView which the cell belong to
+        for view in sequence(first: cell.superview, next: { $0?.superview }) {
+            let dishes = getDishesInCatagory()
+            if let tableView = view as? UITableView {
+                let index = tableView.indexPath(for: cell)!
+                let dish = dishes[(index.row)]
+                return dish
+            }
+        }
+        return nil
+    }
+    
     //add or remove dishes to or from dishTemp
     @objc func addOrRemoveDishes(_ sender : UIButton) {
         print("add button tapped")
         if sender.isSelected == false {
             sender.isSelected = true
-            //add dishID to selectedDishID
+            //add dishTemp to OrderTemp
             let cell = sender.superview?.superview?.superview as! DishCell
-            let dishID = getDishIDFromCell(cell: cell)
-            Select.share.addDishID(dishID: dishID!)
+            let dish = getDishFromCell(cell: cell)
+            OrderTemp.share.addDishTemp(dish: DishTemp(dish: dish!))
         }
         else {
             sender.isSelected = false
-            //remove dishID to selectedDishID
+            //remove dishTemp from OrderTemp
             let cell = sender.superview?.superview?.superview as! DishCell
-            let dishID = getDishIDFromCell(cell: cell)
-            Select.share.removeDishID(dishID: dishID!)
+            let dish = getDishFromCell(cell: cell)
+            OrderTemp.share.removeDishTemp(dishID: (dish?.dishID.value.uuidString)!)
         }
     }
 }

@@ -46,6 +46,7 @@ class CategoryViewController: UITableViewController {
       let restaurantListTableViewController = segue.destination as! RestaurantListViewController
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
         restaurantListTableViewController.category = dataModel.categories[indexPath.row]
+        restaurantListTableViewController.dishes = dataModel.dishes //fake data
       }
     }
 
