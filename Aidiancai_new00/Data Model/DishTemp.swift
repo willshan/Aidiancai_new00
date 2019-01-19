@@ -11,6 +11,7 @@ import Foundation
 class DishTemp {
     var dish : Dish!
     var dishCount = 1
+    var comment = ""
     
     init(dish : Dish) {
         self.dish = dish

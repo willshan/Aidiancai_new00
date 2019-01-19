@@ -723,13 +723,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohJ-51-bQD">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohJ-51-bQD">
                                                             <rect key="frame" x="48" y="0.0" width="22" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="NQT-fx-NuC"/>
                                                                 <constraint firstAttribute="width" constant="22" id="ghh-wa-zLH"/>
                                                             </constraints>
-                                                            <state key="normal" backgroundImage="plus"/>
+                                                            <state key="normal" backgroundImage="plus">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
                                                         </button>
                                                     </subviews>
                                                     <constraints>

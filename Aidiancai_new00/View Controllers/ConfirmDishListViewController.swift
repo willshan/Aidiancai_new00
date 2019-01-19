@@ -84,14 +84,13 @@ class ConfirmDishListViewController: UIViewController {
         commentSuperView.isHidden = true
 
         // Do any additional setup after loading the view.
-        setupDishesCount()
+        updateCountForDishLabel()
         
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.reloadData()
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -121,6 +120,19 @@ extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSo
             cell.photo.image = UIImage(named: dish.dish.dishPics.first!)
         }
         cell.name.text = dish.dish.dishName
+        cell.commentLabel.text = dish.comment
+        
+        if indexPath.row == 1 {
+            cell.commentLabel.text = "这是一个测试"
+        }
+        
+        if cell.commentLabel.text == "" {
+            cell.tintColor = UIColor.lightGray
+        }
+        else {
+            cell.tintColor = UIColor.blue
+        }
+        
         cell.countLabel.text = String(dish.dishCount)
         cell.countMinus?.addTarget(self, action: #selector(minusCount(_:)), for: .touchUpInside)
         cell.countPlus?.addTarget(self, action: #selector(plusCount(_:)), for: .touchUpInside)
@@ -128,39 +140,9 @@ extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
-    @objc func minusCount(_ sender : UIButton) {
-        let contentView = sender.superview?.superview
-        let cell = contentView?.superview as! ConfirmCell
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        commentSuperView.isHidden = false
         
-        //这是一个非常牛逼的方法，用来找到cell的TableView
-        func superTableView() -> UITableView? {
-            for view in sequence(first: cell.superview, next: { $0?.superview }) {
-                if let tableView = view as? UITableView {
-                    return tableView
-                }
-            }
-            return nil
-        }
-        
-        let tableView = superTableView()
-        let index = tableView?.indexPath(for: cell)!
-        
-        dishTemp[index!.row].dishCount -= 1
-        
-        switch dishTemp[index!.row].dish.dishType {
-        case "冷菜":
-            coldCount -= 1
-        case "热菜":
-            hotCount -= 1
-        case "饮料":
-            drinkCount -= 1
-        default:
-            break
-        }
-        cell.countLabel.text = String(dishTemp[index!.row].dishCount)
-    }
-    
-    @objc func plusCount(_ sender : UIButton) {
     }
 }
 
@@ -188,24 +170,6 @@ extension ConfirmDishListViewController {
         maskLayer2.path = maskPath2.cgPath
         view2.layer.mask = maskLayer2
     }
-    
-    func setupDishesCount() {
-        for meal in dishTemp {
-            switch meal.dish.dishType {
-            case "冷菜":
-                coldCount += 1
-            case "热菜":
-                hotCount += 1
-            case "饮料":
-                drinkCount += 1
-            default:
-                continue
-            }
-        }
-        self.colddishCountLabel.text = "\(coldCount)份"
-        self.hotdishCountLabel.text = "\(hotCount)份"
-        self.drinkCountLabel.text = "\(drinkCount)份"
-    }
 }
 
 extension ConfirmDishListViewController {
@@ -218,5 +182,67 @@ extension ConfirmDishListViewController {
             self.confirmOrderButton.isEnabled = true
             self.confirmOrderButton.backgroundColor = UIColor.blue
         }
+    }
+    
+    @objc func minusCount(_ sender : UIButton) {
+        updateDishCount(sender: sender, plus: false)
+    }
+    
+    @objc func plusCount(_ sender : UIButton) {
+        updateDishCount(sender: sender, plus: true)
+    }
+    
+    //update count for specified dish
+    func updateDishCount(sender : UIButton, plus : Bool) {
+        let index = getDishIndex(sender: sender)
+        if plus == true {
+            dishTemp[index!.row].dishCount += 1
+        }
+        else {
+            dishTemp[index!.row].dishCount -= 1
+        }
+        let cell = tableView.cellForRow(at: index!) as! ConfirmCell
+        cell.countLabel.text = String(dishTemp[index!.row].dishCount)
+        updateCountForDishLabel()
+    }
+    
+    //update total count
+    func updateCountForDishLabel() {
+        coldCount = 0
+        hotCount = 0
+        drinkCount = 0
+        for dish in dishTemp {
+            switch dish.dish.dishType {
+            case "冷菜":
+                coldCount += dish.dishCount
+            case "热菜":
+                hotCount += dish.dishCount
+            case "饮料":
+                drinkCount += dish.dishCount
+            default:
+                continue
+            }
+        }
+    }
+    
+    //get indexPath of specified button(plus or minus button)
+    func getDishIndex(sender : UIButton) -> IndexPath? {
+        
+        let contentView = sender.superview?.superview
+        let cell = contentView?.superview as! ConfirmCell
+        
+        //find the tableView of specified cell
+        func superTableView() -> UITableView? {
+            for view in sequence(first: cell.superview, next: { $0?.superview }) {
+                if let tableView = view as? UITableView {
+                    return tableView
+                }
+            }
+            return nil
+        }
+        
+        let tableView = superTableView()
+        let index = tableView?.indexPath(for: cell)!
+        return index
     }
 }
