@@ -34,14 +34,24 @@ class StoreListViewController: UITableViewController {
             let store = category.stores[index.row]
             
             //fake code
-            let dish1 = Dish(name: "烤鸭", pics: ["烤鸭"], dishType: "热菜")
+            let dish1 = Dish(name: "南京烤鸭", pics: ["烤鸭"], dishType: "热菜")
             let dish2 = Dish(name: "炸鸡", pics: ["炸鸡"], dishType: "冷菜")
-            let dish3 = Dish(name: "啤酒", pics: ["啤酒"], dishType: "饮料")
-            
-            dishs = [dish1, dish2, dish3,dish1, dish2, dish3,dish1, dish2, dish3,] as! [Dish]
-            
+            let dish3 = Dish(name: "百威啤酒", pics: ["啤酒"], dishType: "饮料")
+            let dish4 = Dish(name: "炸鸡1", pics: ["炸鸡"], dishType: "冷菜")
+            let dish5 = Dish(name: "雪花啤酒", pics: ["啤酒"], dishType: "饮料")
+            let dish6 = Dish(name: "炸鸡2", pics: ["炸鸡"], dishType: "冷菜")
+            let dish7 = Dish(name: "黑啤酒", pics: ["啤酒"], dishType: "饮料")
+            let dish8 = Dish(name: "北京烤鸭", pics: ["烤鸭"], dishType: "热菜")
+            let dish9 = Dish(name: "炸鸡3", pics: ["炸鸡"], dishType: "冷菜")
+            dishs = [dish1, dish2, dish3, dish4, dish5, dish6,dish7, dish8, dish9,] as! [Dish]
+            //fake code
             Favorite.share.removeAll()
             Favorite.share.addFavoriteDishID(dishID: (dish1?.dishID.value.uuidString)!)
+            Favorite.share.addFavoriteDishID(dishID: (dish5?.dishID.value.uuidString)!)
+            Favorite.share.addFavoriteDishID(dishID: (dish8?.dishID.value.uuidString)!)
+            //fake code
+//            Select.share.removeAll()
+//            Select.share.addDishID(dishID: (dish1?.dishID.value.uuidString)!)
             
             storeViewController.dishs = dishs
             storeViewController.store = store

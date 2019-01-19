@@ -69,21 +69,28 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         
         //set up dish's proporty favorite
         let favoriteDishID = Favorite.share.favoriteDishID
-        
         cell.favorite.isHidden = true
-        
         for dishID in favoriteDishID {
             if dishID.key == dish.dishID.value.uuidString {
                 cell.favorite.isHidden = false
                 break
             }
         }
+        
+        //set up dish's property isSelected
+        let selectedDishID = Select.share.selectedDishID
+        cell.add.isSelected = false
+        cell.add.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
+        cell.add.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
+        for dishID in selectedDishID {
+            if dishID.key == dish.dishID.value.uuidString {
+                cell.add.isSelected = true
+                break
+            }
+        }
+        
         //set up add button func
         cell.add.addTarget(self, action: #selector(addOrRemoveDishs(_:)), for: .touchUpInside)
-//        cell.order?.isSelected = meal.cellSelected
-//        cell.order?.setTitle("加入菜单", for: .normal)
-//        cell.order?.setTitle("已加入", for: .selected)
-//        cell.order?.addTarget(self, action: #selector(addToShoppingCart(_:)), for: .touchUpInside)
         
         return cell
     }
@@ -99,16 +106,36 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DishListViewController {
+    //get dishID
+    func getDishIDFromCell(cell : UITableViewCell) -> String? {
+        //get the tableView which the cell belong to
+        for view in sequence(first: cell.superview, next: { $0?.superview }) {
+            let dishes = getDishsInCatagory()
+            if let tableView = view as? UITableView {
+                let index = tableView.indexPath(for: cell)!
+                let dishID = dishes[(index.row)].dishID
+                return dishID.value.uuidString
+            }
+        }
+        return nil
+    }
+    
     //add or remove dishs to or from dishTemp
     @objc func addOrRemoveDishs(_ sender : UIButton) {
         print("add button tapped")
         if sender.isSelected == false {
             sender.isSelected = true
-            sender.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
+            //add dishID to selectedDishID
+            let cell = sender.superview?.superview?.superview as! DishCell
+            let dishID = getDishIDFromCell(cell: cell)
+            Select.share.addDishID(dishID: dishID!)
         }
         else {
             sender.isSelected = false
-            sender.setImage(UIImage(named: AssetsName.addIcon), for: .normal  )
+            //remove dishID to selectedDishID
+            let cell = sender.superview?.superview?.superview as! DishCell
+            let dishID = getDishIDFromCell(cell: cell)
+            Select.share.removeDishID(dishID: dishID!)
         }
     }
 }

@@ -13,6 +13,7 @@
 		5CE9B3712144C1DA0010E895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9B36F2144C1DA0010E895 /* LaunchScreen.storyboard */; };
 		5CE9B37C2144C1DB0010E895 /* Aidiancai_new00Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B37B2144C1DB0010E895 /* Aidiancai_new00Tests.swift */; };
 		5CE9B3872144C1DB0010E895 /* Aidiancai_new00UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */; };
+		82B3732921F2FCAC00CCA86A /* Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3732821F2FCAC00CCA86A /* Select.swift */; };
 		84130D7721A539B00024BABB /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84130D7621A539B00024BABB /* Favorite.swift */; };
 		8423489D219DADDB00CFC403 /* StructList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423489C219DADDB00CFC403 /* StructList.swift */; };
 		84592DEA21CD2BCA00D3121F /* ConfirmDishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */; };
@@ -63,6 +64,7 @@
 		5CE9B3822144C1DB0010E895 /* Aidiancai_new00UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aidiancai_new00UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aidiancai_new00UITests.swift; sourceTree = "<group>"; };
 		5CE9B3882144C1DB0010E895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82B3732821F2FCAC00CCA86A /* Select.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Select.swift; sourceTree = "<group>"; };
 		84130D7621A539B00024BABB /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		8423489C219DADDB00CFC403 /* StructList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructList.swift; sourceTree = "<group>"; };
 		84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDishListViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				F975DDA6214936A400763ADE /* Dish.swift */,
 				84592DED21CDD33500D3121F /* DishTemp.swift */,
 				84130D7621A539B00024BABB /* Favorite.swift */,
+				82B3732821F2FCAC00CCA86A /* Select.swift */,
 				F948F2F6214BF1EF0039BAF3 /* DishID.swift */,
 				F975DDA821493C1A00763ADE /* Menu.swift */,
 				F948F2F8214BF3100039BAF3 /* MenuID.swift */,
@@ -355,6 +358,7 @@
 				F9EA70002168798600860D58 /* DataModel.swift in Sources */,
 				F948F2FB214BF34F0039BAF3 /* RestaurantID.swift in Sources */,
 				84E99B062199D0AE00EBED2D /* Reviews.swift in Sources */,
+				82B3732921F2FCAC00CCA86A /* Select.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
