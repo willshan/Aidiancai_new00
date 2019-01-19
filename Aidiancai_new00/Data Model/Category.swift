@@ -11,7 +11,7 @@ import UIKit
 class Category: NSObject, Codable {
   var name:String
   var imagePath: URL?
-  var stores = [Restaurant]()
+  var restaurants = [Restaurant]()
   
   init(name:String){
     self.name = name

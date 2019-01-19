@@ -82,13 +82,13 @@
         <!--店家-->
         <scene sceneID="Iaz-cU-dve">
             <objects>
-                <tableViewController id="elD-mA-NYx" customClass="StoreListViewController" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="elD-mA-NYx" customClass="RestaurantListViewController" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rd5-8G-fEA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreListCell" rowHeight="122" id="J9j-2n-dfd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantListCell" rowHeight="122" id="J9j-2n-dfd">
                                 <rect key="frame" x="0.0" y="28" width="320" height="122"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J9j-2n-dfd" id="b4U-wF-QZV">
@@ -411,7 +411,7 @@
                     </view>
                     <connections>
                         <outlet property="dishCatagory" destination="VOH-AM-Wkb" id="SYw-hL-V3o"/>
-                        <outlet property="dishsTableView" destination="vFR-eY-Vs8" id="ZZN-fu-Kvp"/>
+                        <outlet property="dishesTableView" destination="vFR-eY-Vs8" id="ZZN-fu-Kvp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vj1-WC-nKD" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,7 +7,7 @@
 //
 
 struct CellIdentifier {
-    static let storeListCell = "StoreListCell"
+    static let restaurantListCell = "RestaurantListCell"
     static let dishCell = "DishCell"
     static let confirmCell = "ConfirmCell"
 }

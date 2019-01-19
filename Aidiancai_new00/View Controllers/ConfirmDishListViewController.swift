@@ -59,7 +59,7 @@ class ConfirmDishListViewController: UIViewController {
     
     var mealCategory: String!
     var dishTemp : [DishTemp]!
-    var store : Restaurant!
+    var restaurant : Restaurant!
     var commentEditing = false
     var indexTemp = IndexPath() //to record cell index temporary
     
@@ -79,7 +79,7 @@ class ConfirmDishListViewController: UIViewController {
         }
         
         navigationItem.rightBarButtonItem = commentButtonItem
-        navigationItem.title = store.name
+        navigationItem.title = restaurant.name
         
         commentSuperView.layer.borderWidth = 0.5
         commentSuperView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor

@@ -18,40 +18,40 @@ class DataModel {
     
     //正餐
     let category2 = Category(name: "正餐")
-      let store1 = Restaurant()
-      store1.name = "东来顺"
-      store1.cuisine = "北京清真涮羊肉"
-      store1.reviews = 200
-      store1.favorableRate = 4
-      category2.stores.append(store1)
+      let restaurant1 = Restaurant()
+      restaurant1.name = "东来顺"
+      restaurant1.cuisine = "北京清真涮羊肉"
+      restaurant1.reviews = 200
+      restaurant1.favorableRate = 4
+      category2.restaurants.append(restaurant1)
     
-      let store2 = Restaurant()
-      store2.name = "全聚德"
-      store2.cuisine = "北京烤鸭"
-      store2.reviews = 2500
-      store2.favorableRate = 4
-      category2.stores.append(store2)
+      let restaurant2 = Restaurant()
+      restaurant2.name = "全聚德"
+      restaurant2.cuisine = "北京烤鸭"
+      restaurant2.reviews = 2500
+      restaurant2.favorableRate = 4
+      category2.restaurants.append(restaurant2)
       
-      let store3 = Restaurant()
-      store3.name = "白记水饺"
-      store3.cuisine = "水饺"
-      store3.reviews = 2689
-      store3.favorableRate = 3
-      category2.stores.append(store3)
+      let restaurant3 = Restaurant()
+      restaurant3.name = "白记水饺"
+      restaurant3.cuisine = "水饺"
+      restaurant3.reviews = 2689
+      restaurant3.favorableRate = 3
+      category2.restaurants.append(restaurant3)
       
-      let store4 = Restaurant()
-      store4.name = "桂顺斋"
-      store4.cuisine = "天津糕点"
-      store4.reviews = 896586
-      store4.favorableRate = 5
-      category2.stores.append(store4)
+      let restaurant4 = Restaurant()
+      restaurant4.name = "桂顺斋"
+      restaurant4.cuisine = "天津糕点"
+      restaurant4.reviews = 896586
+      restaurant4.favorableRate = 5
+      category2.restaurants.append(restaurant4)
       
-      let store5 = Restaurant()
-      store5.name = "得月楼"
-      store5.cuisine = "苏帮菜"
-      store5.reviews = 986
-      store5.favorableRate = 2
-      category2.stores.append(store5)
+      let restaurant5 = Restaurant()
+      restaurant5.name = "得月楼"
+      restaurant5.cuisine = "苏帮菜"
+      restaurant5.reviews = 986
+      restaurant5.favorableRate = 2
+      category2.restaurants.append(restaurant5)
     categories.append(category2)
     
     //零食

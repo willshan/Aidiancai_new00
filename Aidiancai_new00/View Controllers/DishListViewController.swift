@@ -1,5 +1,5 @@
 //
-//  StoreViewController.swift
+//  DishListViewController.swift
 //  Aidiancai_new00
 //
 //  Created by Admin on 2018/11/12.
@@ -10,25 +10,25 @@ import UIKit
 
 class DishListViewController: UIViewController {
     
-    @IBOutlet weak var dishsTableView: UITableView!
+    @IBOutlet weak var dishesTableView: UITableView!
     @IBOutlet weak var dishCatagory: UISegmentedControl!
     @IBAction func dishCatagoryChanged(_ sender: Any) {
-        dishsTableView.reloadData()
+        dishesTableView.reloadData()
     }
-    //dishs are dishs in specified store
-    var dishs : [Dish]!
-    var store : Restaurant!
+    //dishes are dishes in specified restaurant
+    var dishes : [Dish]!
+    var restaurant : Restaurant!
     var mealCatagory : String!
-    //dishTemp are dishs and related information, such as count, to be deliverred to confirmDishVC
+    //dishTemp are dishes and related information, such as count, to be deliverred to confirmDishVC
     var dishTemp = [DishTemp]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //设置tableView至Segmented controller下方
-        dishsTableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        dishesTableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         // Do any additional setup after loading the view.
-        title = "安排"+mealCatagory+".\(store.name)"
+        title = "安排"+mealCatagory+".\(restaurant.name)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +44,7 @@ class DishListViewController: UIViewController {
         dishTemp.removeAll() //clear dishTemp first
         let slectedDishID = Select.share.selectedDishID
         for dishID in slectedDishID {
-            for dish in dishs {
+            for dish in dishes {
                 if dishID.value == dish.dishID.value.uuidString {
                     dishTemp.append(DishTemp(dish: dish))
                     break
@@ -53,22 +53,22 @@ class DishListViewController: UIViewController {
         }
         print("\(dishTemp)")
         viewController.dishTemp = dishTemp
-        viewController.store = store
+        viewController.restaurant = restaurant
     }
 }
 
 extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
     //UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getDishsInCatagory().count
+        return getDishesInCatagory().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.dishCell, for: indexPath) as! DishCell
 
-        let dishsInCatagory = getDishsInCatagory()
+        let dishesInCatagory = getDishesInCatagory()
         
-        let dish = dishsInCatagory[indexPath.row]
+        let dish = dishesInCatagory[indexPath.row]
         
         cell.name.text = dish.dishName
         if dish.dishPics.count != 0{
@@ -98,7 +98,7 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         }
         
         //set up add button func
-        cell.add.addTarget(self, action: #selector(addOrRemoveDishs(_:)), for: .touchUpInside)
+        cell.add.addTarget(self, action: #selector(addOrRemoveDishes(_:)), for: .touchUpInside)
         
         return cell
     }
@@ -118,7 +118,7 @@ extension DishListViewController {
     func getDishIDFromCell(cell : UITableViewCell) -> String? {
         //get the tableView which the cell belong to
         for view in sequence(first: cell.superview, next: { $0?.superview }) {
-            let dishes = getDishsInCatagory()
+            let dishes = getDishesInCatagory()
             if let tableView = view as? UITableView {
                 let index = tableView.indexPath(for: cell)!
                 let dishID = dishes[(index.row)].dishID
@@ -128,8 +128,8 @@ extension DishListViewController {
         return nil
     }
     
-    //add or remove dishs to or from dishTemp
-    @objc func addOrRemoveDishs(_ sender : UIButton) {
+    //add or remove dishes to or from dishTemp
+    @objc func addOrRemoveDishes(_ sender : UIButton) {
         print("add button tapped")
         if sender.isSelected == false {
             sender.isSelected = true
@@ -150,10 +150,10 @@ extension DishListViewController {
 
 extension DishListViewController {
     //将dish从不同的菜类中区分出来，并返回对应的数组
-    func getDishsInCatagory()-> [Dish] {
+    func getDishesInCatagory()-> [Dish] {
         let kind: String
         var count = 0
-        var dishsInCatagory = [Dish]()
+        var dishesInCatagory = [Dish]()
         
         switch dishCatagory.selectedSegmentIndex {
         case 1: kind = "冷菜"
@@ -162,18 +162,18 @@ extension DishListViewController {
         default: kind = ""
         }
         if kind == "" {
-            count = dishs.count
-            dishsInCatagory = dishs
+            count = dishes.count
+            dishesInCatagory = dishes
         }
         else {
-            for dish in dishs {
+            for dish in dishes {
                 if dish.dishType == kind {
                     count += 1
-                    dishsInCatagory.append(dish)
+                    dishesInCatagory.append(dish)
                 }
             }
         }
-        return dishsInCatagory
+        return dishesInCatagory
     }
 }
 

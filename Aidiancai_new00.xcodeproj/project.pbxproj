@@ -14,6 +14,7 @@
 		5CE9B37C2144C1DB0010E895 /* Aidiancai_new00Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B37B2144C1DB0010E895 /* Aidiancai_new00Tests.swift */; };
 		5CE9B3872144C1DB0010E895 /* Aidiancai_new00UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */; };
 		82B3732921F2FCAC00CCA86A /* Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3732821F2FCAC00CCA86A /* Select.swift */; };
+		82B3732B21F3660700CCA86A /* OrderTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3732A21F3660700CCA86A /* OrderTemp.swift */; };
 		84130D7721A539B00024BABB /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84130D7621A539B00024BABB /* Favorite.swift */; };
 		8423489D219DADDB00CFC403 /* StructList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423489C219DADDB00CFC403 /* StructList.swift */; };
 		84592DEA21CD2BCA00D3121F /* ConfirmDishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */; };
@@ -26,7 +27,7 @@
 		F948F2F7214BF1EF0039BAF3 /* DishID.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F2F6214BF1EF0039BAF3 /* DishID.swift */; };
 		F948F2F9214BF3100039BAF3 /* MenuID.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F2F8214BF3100039BAF3 /* MenuID.swift */; };
 		F948F2FB214BF34F0039BAF3 /* RestaurantID.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F2FA214BF34F0039BAF3 /* RestaurantID.swift */; };
-		F96E674A216322B200C03A0F /* StoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96E6749216322B200C03A0F /* StoreListViewController.swift */; };
+		F96E674A216322B200C03A0F /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96E6749216322B200C03A0F /* RestaurantListViewController.swift */; };
 		F975DDA7214936A400763ADE /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDA6214936A400763ADE /* Dish.swift */; };
 		F975DDA921493C1A00763ADE /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDA821493C1A00763ADE /* Menu.swift */; };
 		F975DDAB2149480300763ADE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975DDAA2149480300763ADE /* Restaurant.swift */; };
@@ -65,6 +66,7 @@
 		5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aidiancai_new00UITests.swift; sourceTree = "<group>"; };
 		5CE9B3882144C1DB0010E895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82B3732821F2FCAC00CCA86A /* Select.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Select.swift; sourceTree = "<group>"; };
+		82B3732A21F3660700CCA86A /* OrderTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTemp.swift; sourceTree = "<group>"; };
 		84130D7621A539B00024BABB /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		8423489C219DADDB00CFC403 /* StructList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructList.swift; sourceTree = "<group>"; };
 		84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDishListViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +79,7 @@
 		F948F2F6214BF1EF0039BAF3 /* DishID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishID.swift; sourceTree = "<group>"; };
 		F948F2F8214BF3100039BAF3 /* MenuID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuID.swift; sourceTree = "<group>"; };
 		F948F2FA214BF34F0039BAF3 /* RestaurantID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantID.swift; sourceTree = "<group>"; };
-		F96E6749216322B200C03A0F /* StoreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListViewController.swift; sourceTree = "<group>"; };
+		F96E6749216322B200C03A0F /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		F975DDA6214936A400763ADE /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		F975DDA821493C1A00763ADE /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		F975DDAA2149480300763ADE /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -176,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				F916436D2162348A00D2AD40 /* CategoryViewController.swift */,
-				F96E6749216322B200C03A0F /* StoreListViewController.swift */,
+				F96E6749216322B200C03A0F /* RestaurantListViewController.swift */,
 				84E99B012199CE1300EBED2D /* DishListViewController.swift */,
 				84E99B032199CEC200EBED2D /* DishCell.swift */,
 				84592DE921CD2BCA00D3121F /* ConfirmDishListViewController.swift */,
@@ -191,6 +193,7 @@
 			children = (
 				F975DDA6214936A400763ADE /* Dish.swift */,
 				84592DED21CDD33500D3121F /* DishTemp.swift */,
+				82B3732A21F3660700CCA86A /* OrderTemp.swift */,
 				84130D7621A539B00024BABB /* Favorite.swift */,
 				82B3732821F2FCAC00CCA86A /* Select.swift */,
 				F948F2F6214BF1EF0039BAF3 /* DishID.swift */,
@@ -341,7 +344,7 @@
 			files = (
 				F975DDAB2149480300763ADE /* Restaurant.swift in Sources */,
 				F9EA6FFE2167089C00860D58 /* Category.swift in Sources */,
-				F96E674A216322B200C03A0F /* StoreListViewController.swift in Sources */,
+				F96E674A216322B200C03A0F /* RestaurantListViewController.swift in Sources */,
 				F975DDA7214936A400763ADE /* Dish.swift in Sources */,
 				F975DDA921493C1A00763ADE /* Menu.swift in Sources */,
 				F916436E2162348A00D2AD40 /* CategoryViewController.swift in Sources */,
@@ -359,6 +362,7 @@
 				F948F2FB214BF34F0039BAF3 /* RestaurantID.swift in Sources */,
 				84E99B062199D0AE00EBED2D /* Reviews.swift in Sources */,
 				82B3732921F2FCAC00CCA86A /* Select.swift in Sources */,
+				82B3732B21F3660700CCA86A /* OrderTemp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

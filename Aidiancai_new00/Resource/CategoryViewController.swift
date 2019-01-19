@@ -43,9 +43,9 @@ class CategoryViewController: UITableViewController {
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      let storeListTableViewController = segue.destination as! StoreListViewController
+      let restaurantListTableViewController = segue.destination as! RestaurantListViewController
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
-        storeListTableViewController.category = dataModel.categories[indexPath.row]
+        restaurantListTableViewController.category = dataModel.categories[indexPath.row]
       }
     }
 

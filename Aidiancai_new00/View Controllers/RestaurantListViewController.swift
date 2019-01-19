@@ -1,5 +1,5 @@
 //
-//  StoreListTableViewController.swift
+//  RestaurantListViewController.swift
 //  Aidiancai_new00
 //
 //  Created by Jinshi Feng on 2018/10/2.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoreListViewController: UITableViewController {
+class RestaurantListViewController: UITableViewController {
     var category: Category!
   
     override func viewDidLoad() {
@@ -28,10 +28,10 @@ class StoreListViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let storeViewController = segue.destination as! DishListViewController
+        let restaurantViewController = segue.destination as! DishListViewController
         if let index = tableView.indexPath(for: sender as! UITableViewCell){
-            var dishs = [Dish]()
-            let store = category.stores[index.row]
+            var dishes = [Dish]()
+            let restaurant = category.restaurants[index.row]
             
             //fake code
             let dish1 = Dish(name: "南京烤鸭", pics: ["烤鸭"], dishType: "热菜")
@@ -43,7 +43,7 @@ class StoreListViewController: UITableViewController {
             let dish7 = Dish(name: "黑啤酒", pics: ["啤酒"], dishType: "饮料")
             let dish8 = Dish(name: "北京烤鸭", pics: ["烤鸭"], dishType: "热菜")
             let dish9 = Dish(name: "炸鸡3", pics: ["炸鸡"], dishType: "冷菜")
-            dishs = [dish1, dish2, dish3, dish4, dish5, dish6,dish7, dish8, dish9,] as! [Dish]
+            dishes = [dish1, dish2, dish3, dish4, dish5, dish6,dish7, dish8, dish9,] as! [Dish]
             //fake code
             Favorite.share.removeAll()
             Favorite.share.addFavoriteDishID(dishID: (dish1?.dishID.value.uuidString)!)
@@ -53,22 +53,22 @@ class StoreListViewController: UITableViewController {
 //            Select.share.removeAll()
 //            Select.share.addDishID(dishID: (dish1?.dishID.value.uuidString)!)
             
-            storeViewController.dishs = dishs
-            storeViewController.store = store
-            storeViewController.mealCatagory = category.name
+            restaurantViewController.dishes = dishes
+            restaurantViewController.restaurant = restaurant
+            restaurantViewController.mealCatagory = category.name
         }
     }
   
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return category.stores.count
+        return category.restaurants.count
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.storeListCell, for: indexPath)
-        let store = category.stores[indexPath.row]
-        configureStoreInformation(for: cell, with: store)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.restaurantListCell, for: indexPath)
+        let restaurant = category.restaurants[indexPath.row]
+        configureRestaurantInformation(for: cell, with: restaurant)
         return cell
     }
   
@@ -77,56 +77,56 @@ class StoreListViewController: UITableViewController {
     }
 
   // MARK: - 辅助函数
-    func configureStoreInformation(for cell:UITableViewCell, with store:Restaurant){
-      configureName(for:cell, with:store)
-      configureCuisine(for:cell, with:store)
-      configureFavorableRate(for:cell, with:store)
-      configureLogo(for:cell, with:store)
+    func configureRestaurantInformation(for cell:UITableViewCell, with restaurant:Restaurant){
+      configureName(for:cell, with:restaurant)
+      configureCuisine(for:cell, with:restaurant)
+      configureFavorableRate(for:cell, with:restaurant)
+      configureLogo(for:cell, with:restaurant)
     }
   
-    func configureName(for cell:UITableViewCell, with store:Restaurant) {
-      let storeNameLabel = cell.viewWithTag(2101) as! UILabel
-      storeNameLabel.text = store.name
+    func configureName(for cell:UITableViewCell, with restaurant:Restaurant) {
+      let restaurantNameLabel = cell.viewWithTag(2101) as! UILabel
+      restaurantNameLabel.text = restaurant.name
     }
 
-    func configureCuisine(for cell:UITableViewCell, with store:Restaurant){
+    func configureCuisine(for cell:UITableViewCell, with restaurant:Restaurant){
       let cuisineLabel = cell.viewWithTag(2102) as! UILabel
-      cuisineLabel.text = store.cuisine
+      cuisineLabel.text = restaurant.cuisine
     }
   
-    func configureFavorableRate(for cell:UITableViewCell, with store:Restaurant){
+    func configureFavorableRate(for cell:UITableViewCell, with restaurant:Restaurant){
       let reviewsLabel = cell.viewWithTag(2103) as! UILabel
-      reviewsLabel.text = "\(store.reviews) reviews"
+      reviewsLabel.text = "\(restaurant.reviews) reviews"
       //设置星星
-      for i in 1...store.favorableRate {
+      for i in 1...restaurant.favorableRate {
         let starImage = cell.viewWithTag(2200+i) as! UIImageView
         starImage.image = UIImage(named: "GreenStar")
       }
-      if store.favorableRate < 5 {
-        for i in (store.favorableRate+1)...5{
+      if restaurant.favorableRate < 5 {
+        for i in (restaurant.favorableRate+1)...5{
           let starImage = cell.viewWithTag(2200+i) as! UIImageView
           starImage.image = UIImage(named: "GrayStar")
         }
       }
     }
   
-    func configureLogo(for cell:UITableViewCell, with store:Restaurant){
+    func configureLogo(for cell:UITableViewCell, with restaurant:Restaurant){
       let logo = cell.viewWithTag(2300) as! UIImageView
-      let indexOfStore = category.stores.index(of: store)
-      if let logoAddress = store.logoAddress {
+      let indexOfRestaurant = category.restaurants.index(of: restaurant)
+      if let logoAddress = restaurant.logoAddress {
         if let logoImageData = try? Data(contentsOf: logoAddress){
           logo.image = UIImage(data: logoImageData)
         }
-      }else if indexOfStore == 0 {
-        logo.image = UIImage(named: "storeNameDonglaishun")
-      }else if indexOfStore == 1 {
-        logo.image = UIImage(named: "storeNameQuanjude")
-      }else if indexOfStore == 2 {
-        logo.image = UIImage(named: "storeNameBaiji")
-      }else if indexOfStore == 3 {
-        logo.image = UIImage(named: "storeNameGuishunzhai")
-      }else if indexOfStore == 4 {
-        logo.image = UIImage(named: "storeNameDeyuelou")
+      }else if indexOfRestaurant == 0 {
+        logo.image = UIImage(named: "restaurantNameDonglaishun")
+      }else if indexOfRestaurant == 1 {
+        logo.image = UIImage(named: "restaurantNameQuanjude")
+      }else if indexOfRestaurant == 2 {
+        logo.image = UIImage(named: "restaurantNameBaiji")
+      }else if indexOfRestaurant == 3 {
+        logo.image = UIImage(named: "restaurantNameGuishunzhai")
+      }else if indexOfRestaurant == 4 {
+        logo.image = UIImage(named: "restaurantNameDeyuelou")
       }
     }
 
