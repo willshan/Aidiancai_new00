@@ -13,7 +13,7 @@ final class OrderTemp {
     static let share = OrderTemp()
     
     var restaurantID : String!
-    
+    var comment = ""
     var dishInOrder = [String : DishTemp]()
     //init from local disk
     

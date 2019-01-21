@@ -33,6 +33,7 @@ class DishListViewController: UIViewController {
         guard OrderTemp.share.restaurantID == restaurant.restaurantID.value.uuidString else {
             OrderTemp.share.restaurantID = restaurant.restaurantID.value.uuidString
             OrderTemp.share.removeAll()
+            OrderTemp.share.comment = ""
             return
         }
     }

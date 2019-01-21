@@ -10,6 +10,9 @@ struct CellIdentifier {
     static let restaurantListCell = "RestaurantListCell"
     static let dishCell = "DishCell"
     static let confirmCell = "ConfirmCell"
+    static let orderCell = "OrderCell"
+    static let orderCell01 = "OrderCell01"
+    static let orderCell02 = "OrderCell02"
 }
 
 struct SegueIdentifier {

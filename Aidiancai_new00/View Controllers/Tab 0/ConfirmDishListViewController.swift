@@ -60,7 +60,7 @@ class ConfirmDishListViewController: UIViewController {
     var mealCategory: String!
     var dishTemp : [DishTemp]!
     var restaurant : Restaurant!
-    var commentEditing = false
+    var orderCommentIsEditing = false
     var indexTemp = IndexPath() //to record cell index temporary
     
     override func viewDidLoad() {
@@ -75,7 +75,7 @@ class ConfirmDishListViewController: UIViewController {
         }
         
         var commentButtonItem : UIBarButtonItem {
-            return UIBarButtonItem(title: "备注", style: .plain, target: self, action: nil)
+            return UIBarButtonItem(title: "备注", style: .plain, target: self, action: #selector(updateComment(_:)))
         }
         
         navigationItem.rightBarButtonItem = commentButtonItem
@@ -89,6 +89,7 @@ class ConfirmDishListViewController: UIViewController {
         // Do any additional setup after loading the view.
         updateCountForDishLabel()
         updateConfirmButton()
+        updateBarButtonColor()
         
         //set up delegate
         commentTextFiled.delegate = self
@@ -112,6 +113,15 @@ class ConfirmDishListViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
         print("the instance of ConfirmDishListVC was deinited")
+    }
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let viewController = segue.destination as! OrderViewController
+        
+        viewController.dishTemp = dishTemp
+        viewController.mealCategory = mealCategory
+        viewController.restaurant = restaurant
     }
 }
 
@@ -147,6 +157,7 @@ extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        orderCommentIsEditing = false //cancel order comment editing first if needed
         if commentSuperView.isHidden == false {
             commentSuperView.isHidden = true
             commentTextFiled.resignFirstResponder() //hide keyboard
@@ -208,6 +219,21 @@ extension ConfirmDishListViewController {
 }
 
 extension ConfirmDishListViewController {
+    
+    @objc func updateComment(_ sender : UIBarButtonItem) {
+        if commentSuperView.isHidden == false {
+            commentSuperView.isHidden = true
+            commentTextFiled.resignFirstResponder() //hide keyboard
+            orderCommentIsEditing = false
+        }
+        else {
+            commentSuperView.isHidden = false
+            commentTextFiled.becomeFirstResponder() //awake keyboard
+            commentTextFiled.text = OrderTemp.share.comment
+            orderCommentIsEditing = true
+        }
+    }
+    
     @objc func minusCount(_ sender : UIButton) {
         updateDishCount(sender: sender, plus: false)
     }
@@ -280,16 +306,30 @@ extension ConfirmDishListViewController {
             confirmOrderButton.backgroundColor = UIColor.blue
         }
     }
+    
+    func updateBarButtonColor() {
+        if OrderTemp.share.comment == "" {
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        }
+        else {
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.blue
+        }
+    }
 }
 
 extension ConfirmDishListViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        print("\(commentEditing)")
-        textField.resignFirstResponder()
-        commentSuperView.isHidden = true
-        self.dishTemp[indexTemp.row].comment = commentTextFiled.text!
-        self.tableView.reloadData()
+        textField.resignFirstResponder() //hide keyboard
+        commentSuperView.isHidden = true //hide input box
+        //determine cellComment or orderComment is editing
+        if orderCommentIsEditing == false {
+            self.dishTemp[indexTemp.row].comment = commentTextFiled.text!
+            self.tableView.reloadData()
+        }
+        else {
+            OrderTemp.share.comment = commentTextFiled.text!
+            updateBarButtonColor()
+        }
         return true
     }
 }
