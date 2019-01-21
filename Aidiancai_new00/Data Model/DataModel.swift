@@ -13,16 +13,23 @@ class DataModel {
   var dishes = [Dish]()
   init() {
     //fake dishes
-    let dish1 = Dish(name: "南京烤鸭", pics: ["烤鸭"], dishType: "热菜")
-    let dish2 = Dish(name: "炸鸡", pics: ["炸鸡"], dishType: "冷菜")
-    let dish3 = Dish(name: "百威啤酒", pics: ["啤酒"], dishType: "饮料")
-    let dish4 = Dish(name: "炸鸡1", pics: ["炸鸡"], dishType: "冷菜")
-    let dish5 = Dish(name: "雪花啤酒", pics: ["啤酒"], dishType: "饮料")
-    let dish6 = Dish(name: "炸鸡2", pics: ["炸鸡"], dishType: "冷菜")
-    let dish7 = Dish(name: "黑啤酒", pics: ["啤酒"], dishType: "饮料")
-    let dish8 = Dish(name: "北京烤鸭", pics: ["烤鸭"], dishType: "热菜")
-    let dish9 = Dish(name: "炸鸡3", pics: ["炸鸡"], dishType: "冷菜")
-    dishes = [dish1, dish2, dish3, dish4, dish5, dish6,dish7, dish8, dish9,] as! [Dish]
+    let dish1 = Dish(name: AssetsExample.dapanji, pics: [AssetsExample.dapanji], dishType: DishType.hotDish)
+    let dish2 = Dish(name: AssetsExample.gongbaojiding, pics: [AssetsExample.gongbaojiding], dishType: DishType.hotDish)
+    let dish3 = Dish(name: AssetsExample.huiguorou, pics: [AssetsExample.huiguorou], dishType: DishType.hotDish)
+    let dish4 = Dish(name: AssetsExample.jiangxiaobai, pics: [AssetsExample.jiangxiaobai], dishType: DishType.drink)
+    let dish5 = Dish(name: AssetsExample.jiangniurou, pics: [AssetsExample.jiangniurou], dishType: DishType.coldDish)
+    let dish6 = Dish(name: AssetsExample.kaoya, pics: [AssetsExample.kaoya], dishType: DishType.hotDish)
+    let dish7 = Dish(name: AssetsExample.kele, pics: [AssetsExample.kele], dishType: DishType.drink)
+    let dish8 = Dish(name: AssetsExample.koushuiji, pics: [AssetsExample.koushuiji], dishType: DishType.coldDish)
+    let dish9 = Dish(name: AssetsExample.suantangfeiniu, pics: [AssetsExample.suantangfeiniu], dishType: DishType.hotDish)
+    let dish10 = Dish(name: AssetsExample.wanglaoji, pics: [AssetsExample.wanglaoji], dishType: DishType.drink)
+    let dish11 = Dish(name: AssetsExample.wuliangye, pics: [AssetsExample.wuliangye], dishType: DishType.drink)
+    let dish12 = Dish(name: AssetsExample.xuehuapijiu, pics: [AssetsExample.xuehuapijiu], dishType: DishType.drink)
+    let dish13 = Dish(name: AssetsExample.yangrouchuang, pics: [AssetsExample.yangrouchuang], dishType: DishType.hotDish)
+    let dish14 = Dish(name: AssetsExample.yutoudoufutang, pics: [AssetsExample.yutoudoufutang], dishType: DishType.hotDish)
+    let dish15 = Dish(name: AssetsExample.zhaji, pics: [AssetsExample.zhaji], dishType: DishType.hotDish)
+    let dish16 = Dish(name: AssetsExample.zhendingji, pics: [AssetsExample.zhendingji], dishType: DishType.coldDish)
+    dishes = [dish1, dish2, dish3, dish4, dish5, dish6,dish7, dish8, dish9,dish10, dish11,dish12, dish13, dish14, dish15, dish16,] as! [Dish]
     //fake code
     Favorite.share.removeAll()
     Favorite.share.addFavoriteDishID(dishID: (dish1?.dishID.value.uuidString)!)
