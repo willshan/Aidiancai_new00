@@ -37,7 +37,11 @@ class DishListViewController: UIViewController {
             return
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dishesTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,15 +50,27 @@ class DishListViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let viewController = segue.destination as! ConfirmDishListViewController
-
-        let dishDic = OrderTemp.share.dishInOrder //reference type
-        var dishTemp = [DishTemp]() //reference type
-        for dish in dishDic {
-            dishTemp.append(dish.value)
+        switch(segue.identifier ?? "") {
+            
+        case SegueIdentifier.confirmDishListSegue:
+            let viewController = segue.destination as! ConfirmDishListViewController
+            let dishDic = OrderTemp.share.dishInOrder //reference type
+            var dishesTemp = [DishTemp]() //reference type
+            for dish in dishDic {
+                dishesTemp.append(dish.value)
+            }
+            viewController.dishesTemp = dishesTemp
+            viewController.restaurant = restaurant
+            
+        case SegueIdentifier.dishDetailSegue:
+            let viewController = segue.destination as! DishDetailViewController
+            let cell = sender as! DishCell
+            let index = dishesTableView.indexPath(for: cell)
+            viewController.dish = dishes[(index?.row)!]
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
-        viewController.dishTemp = dishTemp
-        viewController.restaurant = restaurant
     }
 }
 
@@ -87,18 +103,10 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         }
         
         //set up dish's property isSelected
-        let orderedDishDic = OrderTemp.share.dishInOrder
-        cell.add.isSelected = false
         cell.add.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
         cell.add.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
-        for orderedDish in orderedDishDic {
-//            print("\(orderedDish.key) vs \(dish.dishID.value.uuidString)")
-            if orderedDish.key == dish.dishID.value.uuidString {
-                cell.add.isSelected = true
-                break
-            }
-        }
-        
+        cell.add.isSelected = OrderTemp.share.isDishSelected(dishID: dish.dishID.value.uuidString)
+
         //set up add button func
         cell.add.addTarget(self, action: #selector(addOrRemoveDishes(_:)), for: .touchUpInside)
         
@@ -110,8 +118,9 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         return 122
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+    //这个公式目的是，点击菜品后，再返回菜单时，菜品上没有选中阴影
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

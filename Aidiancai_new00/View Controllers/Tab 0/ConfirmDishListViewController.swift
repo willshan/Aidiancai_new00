@@ -58,7 +58,7 @@ class ConfirmDishListViewController: UIViewController {
     }
     
     var mealCategory: String!
-    var dishTemp : [DishTemp]!
+    var dishesTemp : [DishTemp]!
     var restaurant : Restaurant!
     var orderCommentIsEditing = false
     var indexTemp = IndexPath() //to record cell index temporary
@@ -119,7 +119,7 @@ class ConfirmDishListViewController: UIViewController {
         
         let viewController = segue.destination as! OrderViewController
         
-        viewController.dishTemp = dishTemp
+        viewController.dishesTemp = dishesTemp
         viewController.mealCategory = mealCategory
         viewController.restaurant = restaurant
     }
@@ -127,14 +127,14 @@ class ConfirmDishListViewController: UIViewController {
 
 extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dishTemp.count
+        return dishesTemp.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.confirmCell, for: indexPath) as! ConfirmCell
         
-        let dish = dishTemp[indexPath.row]
+        let dish = dishesTemp[indexPath.row]
         
         if dish.dish.dishPics.count != 0{
             cell.photo.image = UIImage(named: dish.dish.dishPics.first!)
@@ -166,7 +166,7 @@ extension ConfirmDishListViewController : UITableViewDelegate, UITableViewDataSo
             commentSuperView.isHidden = false
             commentTextFiled.becomeFirstResponder() //awake keyboard
             self.indexTemp = indexPath
-            commentTextFiled.text = dishTemp[indexPath.row].comment
+            commentTextFiled.text = dishesTemp[indexPath.row].comment
         }
     }
 }
@@ -246,13 +246,13 @@ extension ConfirmDishListViewController {
     func updateDishCount(sender : UIButton, plus : Bool) {
         let index = getDishIndex(sender: sender)
         if plus == true {
-            dishTemp[index!.row].dishCount += 1
+            dishesTemp[index!.row].dishCount += 1
         }
         else {
-            dishTemp[index!.row].dishCount -= 1
+            dishesTemp[index!.row].dishCount -= 1
         }
         let cell = tableView.cellForRow(at: index!) as! ConfirmCell
-        cell.countLabel.text = String(dishTemp[index!.row].dishCount)
+        cell.countLabel.text = String(dishesTemp[index!.row].dishCount)
         updateCountForDishLabel()
     }
     
@@ -261,7 +261,7 @@ extension ConfirmDishListViewController {
         coldCount = 0
         hotCount = 0
         drinkCount = 0
-        for dish in dishTemp {
+        for dish in dishesTemp {
             switch dish.dish.dishType {
             case "冷菜":
                 coldCount += dish.dishCount
@@ -297,7 +297,7 @@ extension ConfirmDishListViewController {
     }
 
     func updateConfirmButton() {
-        if dishTemp.count == 0 {
+        if dishesTemp.count == 0 {
             confirmOrderButton.isEnabled = false
             confirmOrderButton.backgroundColor = UIColor.lightGray
         }
@@ -323,7 +323,7 @@ extension ConfirmDishListViewController : UITextFieldDelegate {
         commentSuperView.isHidden = true //hide input box
         //determine cellComment or orderComment is editing
         if orderCommentIsEditing == false {
-            self.dishTemp[indexTemp.row].comment = commentTextFiled.text!
+            self.dishesTemp[indexTemp.row].comment = commentTextFiled.text!
             self.tableView.reloadData()
         }
         else {

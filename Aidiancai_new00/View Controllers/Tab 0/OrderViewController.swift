@@ -17,7 +17,7 @@ class OrderViewController: UIViewController {
     }
     
     var mealCategory: String!
-    var dishTemp : [DishTemp]!
+    var dishesTemp : [DishTemp]!
     var restaurant : Restaurant!
     
     override func viewDidLoad() {
@@ -28,11 +28,11 @@ class OrderViewController: UIViewController {
 extension OrderViewController : UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dishTemp.count + 4
+        return dishesTemp.count + 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row != dishTemp.count {
+        if indexPath.row != dishesTemp.count {
             return 44
         }
         else {
@@ -41,10 +41,10 @@ extension OrderViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < dishTemp.count {
+        if indexPath.row < dishesTemp.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.orderCell, for: indexPath) as! OrderCell
             
-            let dish = dishTemp[indexPath.row]
+            let dish = dishesTemp[indexPath.row]
             cell.number.text = String(indexPath.row+1)
             cell.name.text = dish.dish.dishName
             cell.time.text = OrderViewController.timeConvertString(date: Date())
@@ -54,7 +54,7 @@ extension OrderViewController : UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-        if indexPath.row == dishTemp.count{
+        if indexPath.row == dishesTemp.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.orderCell01, for: indexPath)
             let commentTextView = cell.viewWithTag(3000) as! UITextView
             if OrderTemp.share.comment == "" {
@@ -71,15 +71,15 @@ extension OrderViewController : UITableViewDelegate, UITableViewDataSource {
             let label = cell.viewWithTag(3010) as! UILabel
             let cost = cell.viewWithTag(3020) as! UILabel
             switch indexPath.row {
-            case dishTemp.count+1 :
+            case dishesTemp.count+1 :
                 label.text = "菜价小计"
                 label.textColor = UIColor.lightGray
                 cost.text = "￥3200"
-            case dishTemp.count+2 :
+            case dishesTemp.count+2 :
                 label.text = "包间费"
                 label.textColor = UIColor.lightGray
                 cost.text = "￥800"
-            case dishTemp.count+3 :
+            case dishesTemp.count+3 :
                 label.text = "总价"
                 label.font = UIFont.boldSystemFont(ofSize: 20)
                 cost.text = "￥4000"
@@ -107,7 +107,7 @@ extension OrderViewController {
         return date.components(separatedBy: " ").first!
     }
     func setupTableViewHeight() {
-        let height = CGFloat((dishTemp.count+3)*44+90)
+        let height = CGFloat((dishesTemp.count+3)*44+90)
         let screenAvailableHeight = UIScreen.main.bounds.height-140
         if height > screenAvailableHeight {
             tableViewHeight.constant = screenAvailableHeight

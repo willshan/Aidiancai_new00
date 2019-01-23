@@ -16,7 +16,8 @@ struct CellIdentifier {
 }
 
 struct SegueIdentifier {
-    
+    static let dishDetailSegue = "DishDetailSegue"
+    static let confirmDishListSegue = "ConfirmDishListSegue"
 }
 
 struct AssetsName {

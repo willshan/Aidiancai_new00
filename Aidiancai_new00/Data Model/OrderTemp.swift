@@ -34,4 +34,17 @@ final class OrderTemp {
     func removeAll() {
         dishInOrder.removeAll()
     }
+    
+    //query Dish
+    func isDishSelected(dishID : String)->Bool {
+        for dish in dishInOrder {
+            if dishID == dish.key {
+                return true
+            }
+            else {
+                continue
+            }
+        }
+        return false
+    }
 }

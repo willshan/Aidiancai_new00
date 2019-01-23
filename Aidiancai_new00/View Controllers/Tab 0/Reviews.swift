@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Reviews: UIStackView {
+@IBDesignable class Reviews: UIStackView {
     //MARK: Properties
     private var reviewPics = [UIImageView]()
     
@@ -18,7 +18,11 @@ class Reviews: UIStackView {
         }
     }
     
-    let starSize: CGSize = CGSize(width: 16.0, height: 16.0)
+    @IBInspectable var starSize: CGSize = CGSize(width: 16.0, height: 16.0){
+        didSet {
+            setupStars()
+        }
+    }
     
     //MARK: Initialization
     override init(frame: CGRect) {
