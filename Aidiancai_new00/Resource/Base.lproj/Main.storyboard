@@ -1213,6 +1213,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="lastDish:" destination="bsH-R5-qpt" eventType="touchUpInside" id="V7x-IK-cMy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oE3-ew-W2h">
                                         <rect key="frame" x="149" y="0.0" width="139" height="44"/>
@@ -1225,6 +1228,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="nextDish:" destination="bsH-R5-qpt" eventType="touchUpInside" id="SOm-e3-6eJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1269,8 +1275,6 @@
                     <connections>
                         <outlet property="addButton" destination="6ge-zF-lLY" id="Bh1-nz-Wu0"/>
                         <outlet property="dishIntroduction" destination="PQ5-zu-Dju" id="3gB-Ia-l74"/>
-                        <outlet property="lastButton" destination="Ctb-Xk-az0" id="My8-52-Xpx"/>
-                        <outlet property="nextButton" destination="oE3-ew-W2h" id="6fE-VY-2IU"/>
                         <outlet property="reviewLabel" destination="pGA-yK-Jr1" id="3L5-hu-Ko4"/>
                         <outlet property="reviews" destination="7ab-OU-lIh" id="4Rw-CH-keT"/>
                         <outlet property="scrollView" destination="nLk-tb-ybf" id="zS5-Md-3r4"/>

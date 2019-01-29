@@ -15,18 +15,51 @@ class DishDetailViewController: UIViewController {
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var dishIntroduction: UITextView!
-    @IBOutlet weak var lastButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBAction func lastDish(_ sender: Any) {
+        if index.row > 0 {
+            self.dish = dishes[index.row-1]
+            self.index = IndexPath(row: index.row-1, section: index.section)
+            setupTitle()
+            setupAddButton()
+            setupScrollViewUI()
+        }
+        else {
+            self.dish = dishes.last
+            self.index = IndexPath(row: dishes.count-1, section: index.section)
+            setupTitle()
+            setupAddButton()
+            setupScrollViewUI()
+        }
+    }
+    @IBAction func nextDish(_ sender: Any) {
+        if index.row < dishes.count-1 {
+            self.dish = dishes[index.row+1]
+            self.index = IndexPath(row: index.row+1, section: index.section)
+            setupTitle()
+            setupAddButton()
+            setupScrollViewUI()
+        }
+        else {
+            self.dish = dishes.first
+            self.index = IndexPath(row: 0, section: index.section)
+            setupTitle()
+            setupAddButton()
+            setupScrollViewUI()
+        }
+    }
     
     var dish : Dish!
     var orderTemp: OrderTemp! //injection var
+    var dishes : [Dish]!
+    var index : IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = dish.dishName
+        setupTitle()
         setupAddButton()
-        setScrollViewUI()
+        setupScrollViewUI()
         // Do any additional setup after loading the view.
     }
     
@@ -43,6 +76,10 @@ class DishDetailViewController: UIViewController {
 
 }
 extension DishDetailViewController {
+    func setupTitle() {
+        self.title = dish.dishName
+    }
+    
     func setupAddButton() {
         //set up add button func
         addButton.addTarget(self, action: #selector(addOrRemoveDishes(_:)), for: .touchUpInside)
@@ -74,7 +111,7 @@ extension DishDetailViewController {
 
 extension DishDetailViewController : UIScrollViewDelegate {
     
-    func setScrollViewUI() {
+    func setupScrollViewUI() {
         scrollView.delegate = self
         // Remove constraints for scroll view, turn off Auto Layout for scroll view
         scrollView.removeConstraints(scrollView.constraints)

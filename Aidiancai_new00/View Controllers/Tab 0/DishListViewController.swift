@@ -71,6 +71,8 @@ class DishListViewController: UIViewController {
             let index = dishesTableView.indexPath(for: cell)
             viewController.dish = dishes[(index?.row)!]
             viewController.orderTemp = orderTemp
+            viewController.dishes = dishes
+            viewController.index = index
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
