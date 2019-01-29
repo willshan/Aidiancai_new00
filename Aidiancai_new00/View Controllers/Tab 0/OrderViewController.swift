@@ -75,7 +75,7 @@ extension OrderViewController : UITableViewDelegate, UITableViewDataSource {
             case dishesTemp.count+1 :
                 label.text = "菜价小计"
                 label.textColor = UIColor.lightGray
-                cost.text = "￥3200"
+                cost.text = "￥"+"\(dishesTemp.count*25)"
             case dishesTemp.count+2 :
                 label.text = "包间费"
                 label.textColor = UIColor.lightGray
@@ -83,7 +83,7 @@ extension OrderViewController : UITableViewDelegate, UITableViewDataSource {
             case dishesTemp.count+3 :
                 label.text = "总价"
                 label.font = UIFont.boldSystemFont(ofSize: 20)
-                cost.text = "￥4000"
+                cost.text = "￥"+"\(dishesTemp.count*25+800)"
                 cost.font = UIFont.boldSystemFont(ofSize: 20)
             default:
                 label.text = "error"

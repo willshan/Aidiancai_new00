@@ -29,7 +29,8 @@ class DataModel {
     let dish14 = Dish(name: AssetsExample.yutoudoufutang, pics: [AssetsExample.yutoudoufutang], dishType: DishType.hotDish)
     let dish15 = Dish(name: AssetsExample.zhaji, pics: [AssetsExample.zhaji], dishType: DishType.hotDish)
     let dish16 = Dish(name: AssetsExample.zhendingji, pics: [AssetsExample.zhendingji], dishType: DishType.coldDish)
-    dishes = [dish1, dish2, dish3, dish4, dish5, dish6,dish7, dish8, dish9,dish10, dish11,dish12, dish13, dish14, dish15, dish16,] as! [Dish]
+    let dish17 = Dish(name: AssetsExample.aogute, pics: [AssetsExample.aogute], dishType: DishType.drink)
+    dishes = [dish1, dish2, dish3, dish4, dish5, dish6,dish7, dish8, dish9,dish10, dish11,dish12, dish13, dish14, dish15, dish16, dish17,] as! [Dish]
     //fake code
     Favorite.share.removeAll()
     Favorite.share.addFavoriteDishID(dishID: (dish1?.dishID.value.uuidString)!)

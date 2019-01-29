@@ -44,6 +44,7 @@ struct AssetsExample {
     static let yutoudoufutang = "鱼头豆腐汤"
     static let zhaji = "炸鸡"
     static let zhendingji = "振鼎鸡"
+    static let aogute = "奥古特"
 }
 
 struct DishType {
