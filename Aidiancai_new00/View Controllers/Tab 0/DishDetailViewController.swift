@@ -19,6 +19,7 @@ class DishDetailViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     var dish : Dish!
+    var orderTemp: OrderTemp! //injection var
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,7 @@ extension DishDetailViewController {
         addButton.addTarget(self, action: #selector(addOrRemoveDishes(_:)), for: .touchUpInside)
         addButton.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
         addButton.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
-        if OrderTemp.share.isDishSelected(dishID: dish.dishID.value.uuidString) {
+        if orderTemp.isDishSelected(dishID: dish.dishID.value.uuidString) {
             addButton.isSelected = true
         }
         else {
@@ -61,12 +62,12 @@ extension DishDetailViewController {
         if sender.isSelected == false {
             sender.isSelected = true
             //add dishTemp to OrderTemp
-            OrderTemp.share.addDishTemp(dish: DishTemp(dish: dish))
+            orderTemp.addDishTemp(dish: DishTemp(dish: dish))
         }
         else {
             sender.isSelected = false
             //remove dishTemp from OrderTemp
-            OrderTemp.share.removeDishTemp(dishID: dish.dishID.value.uuidString)
+            orderTemp.removeDishTemp(dishID: dish.dishID.value.uuidString)
         }
     }
 }

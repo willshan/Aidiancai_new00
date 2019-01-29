@@ -62,6 +62,7 @@ class ConfirmDishListViewController: UIViewController {
     var restaurant : Restaurant!
     var orderCommentIsEditing = false
     var indexTemp = IndexPath() //to record cell index temporary
+    var orderTemp : OrderTemp! //injection var
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +123,7 @@ class ConfirmDishListViewController: UIViewController {
         viewController.dishesTemp = dishesTemp
         viewController.mealCategory = mealCategory
         viewController.restaurant = restaurant
+        viewController.orderTemp = orderTemp
     }
 }
 
@@ -229,7 +231,7 @@ extension ConfirmDishListViewController {
         else {
             commentSuperView.isHidden = false
             commentTextFiled.becomeFirstResponder() //awake keyboard
-            commentTextFiled.text = OrderTemp.share.comment
+            commentTextFiled.text = orderTemp.comment
             orderCommentIsEditing = true
         }
     }
@@ -308,7 +310,7 @@ extension ConfirmDishListViewController {
     }
     
     func updateBarButtonColor() {
-        if OrderTemp.share.comment == "" {
+        if orderTemp.comment == "" {
             navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         }
         else {
@@ -327,7 +329,7 @@ extension ConfirmDishListViewController : UITextFieldDelegate {
             self.tableView.reloadData()
         }
         else {
-            OrderTemp.share.comment = commentTextFiled.text!
+            orderTemp.comment = commentTextFiled.text!
             updateBarButtonColor()
         }
         return true

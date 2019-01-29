@@ -11,6 +11,7 @@ import UIKit
 class RestaurantListViewController: UITableViewController {
     var category: Category!
     var dishes: [Dish]! //fake var
+    var orderTemp: OrderTemp! //Injection var
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class RestaurantListViewController: UITableViewController {
             restaurantViewController.dishes = dishes
             restaurantViewController.restaurant = restaurant
             restaurantViewController.mealCatagory = category.name
+            restaurantViewController.orderTemp = orderTemp
         }
     }
   

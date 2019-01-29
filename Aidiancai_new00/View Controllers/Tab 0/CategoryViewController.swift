@@ -11,7 +11,8 @@ import UIKit
 class CategoryViewController: UITableViewController {
 
     var dataModel: DataModel!
-  
+    var orderTemp: OrderTemp! //injection var for transport data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -47,6 +48,7 @@ class CategoryViewController: UITableViewController {
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
         restaurantListTableViewController.category = dataModel.categories[indexPath.row]
         restaurantListTableViewController.dishes = dataModel.dishes //fake data
+        restaurantListTableViewController.orderTemp = orderTemp
       }
     }
 
@@ -76,5 +78,4 @@ class CategoryViewController: UITableViewController {
         imageView.image = UIImage(named: "categorySnack")
       }
     }
-
 }

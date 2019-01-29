@@ -19,6 +19,7 @@ class OrderViewController: UIViewController {
     var mealCategory: String!
     var dishesTemp : [DishTemp]!
     var restaurant : Restaurant!
+    var orderTemp : OrderTemp! //injection var
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +58,11 @@ extension OrderViewController : UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == dishesTemp.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.orderCell01, for: indexPath)
             let commentTextView = cell.viewWithTag(3000) as! UITextView
-            if OrderTemp.share.comment == "" {
+            if orderTemp.comment == "" {
                 commentTextView.text = "这是一个很长很长的测试文字，有多长呢，我也不知道，但是这不重要，因为它只是用来测试的，真的，程序从来不会说谎！你不信，反正我信了。"
             }
             else {
-                commentTextView.text = OrderTemp.share.comment
+                commentTextView.text = orderTemp.comment
             }
             
             return cell

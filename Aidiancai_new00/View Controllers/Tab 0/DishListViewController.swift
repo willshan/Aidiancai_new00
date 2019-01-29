@@ -19,6 +19,8 @@ class DishListViewController: UIViewController {
     var dishes : [Dish]!
     var restaurant : Restaurant!
     var mealCatagory : String!
+    var orderTemp: OrderTemp! //Injection var
+    
     //dishTemp are dishes and related information, such as count, to be deliverred to confirmDishVC
 //    var dishTemp = [DishTemp]()
 
@@ -30,10 +32,10 @@ class DishListViewController: UIViewController {
         title = "安排"+mealCatagory+".\(restaurant.name)"
         
         //check the restaurant is orderred, if yes load order, if no clear old order and creat new empty
-        guard OrderTemp.share.restaurantID == restaurant.restaurantID.value.uuidString else {
-            OrderTemp.share.restaurantID = restaurant.restaurantID.value.uuidString
-            OrderTemp.share.removeAll()
-            OrderTemp.share.comment = ""
+        guard orderTemp.restaurantID == restaurant.restaurantID.value.uuidString else {
+            orderTemp.restaurantID = restaurant.restaurantID.value.uuidString
+            orderTemp.removeAll()
+            orderTemp.comment = ""
             return
         }
     }
@@ -54,19 +56,21 @@ class DishListViewController: UIViewController {
             
         case SegueIdentifier.confirmDishListSegue:
             let viewController = segue.destination as! ConfirmDishListViewController
-            let dishDic = OrderTemp.share.dishInOrder //reference type
+            let dishDic = orderTemp.dishInOrder //reference type
             var dishesTemp = [DishTemp]() //reference type
             for dish in dishDic {
                 dishesTemp.append(dish.value)
             }
             viewController.dishesTemp = dishesTemp
             viewController.restaurant = restaurant
+            viewController.orderTemp = orderTemp
             
         case SegueIdentifier.dishDetailSegue:
             let viewController = segue.destination as! DishDetailViewController
             let cell = sender as! DishCell
             let index = dishesTableView.indexPath(for: cell)
             viewController.dish = dishes[(index?.row)!]
+            viewController.orderTemp = orderTemp
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -105,7 +109,7 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         //set up dish's property isSelected
         cell.add.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
         cell.add.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
-        cell.add.isSelected = OrderTemp.share.isDishSelected(dishID: dish.dishID.value.uuidString)
+        cell.add.isSelected = orderTemp.isDishSelected(dishID: dish.dishID.value.uuidString)
 
         //set up add button func
         cell.add.addTarget(self, action: #selector(addOrRemoveDishes(_:)), for: .touchUpInside)
@@ -161,14 +165,14 @@ extension DishListViewController {
             //add dishTemp to OrderTemp
             let cell = sender.superview?.superview?.superview as! DishCell
             let dish = getDishFromCell(cell: cell)
-            OrderTemp.share.addDishTemp(dish: DishTemp(dish: dish!))
+            orderTemp.addDishTemp(dish: DishTemp(dish: dish!))
         }
         else {
             sender.isSelected = false
             //remove dishTemp from OrderTemp
             let cell = sender.superview?.superview?.superview as! DishCell
             let dish = getDishFromCell(cell: cell)
-            OrderTemp.share.removeDishTemp(dishID: (dish?.dishID.value.uuidString)!)
+            orderTemp.removeDishTemp(dishID: (dish?.dishID.value.uuidString)!)
         }
     }
 }

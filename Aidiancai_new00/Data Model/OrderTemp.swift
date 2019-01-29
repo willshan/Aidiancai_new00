@@ -9,15 +9,16 @@
 import Foundation
 
 final class OrderTemp {
-    
-    static let share = OrderTemp()
-    
+//    static let share = OrderTemp()
     var restaurantID : String!
     var comment = ""
     var dishInOrder = [String : DishTemp]()
-    //init from local disk
     
-    private init() {} // Prevent clients from creating another instance.
+    init() {
+        if restaurantID == nil {
+            restaurantID = ""
+        }
+    }
     
     //add Dish
     func addDishTemp(dish : DishTemp) {

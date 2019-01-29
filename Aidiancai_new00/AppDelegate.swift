@@ -14,11 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let dataModel = DataModel()
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let orderTemp = OrderTemp()
         let navigationController = window!.rootViewController as! UINavigationController
         let categoryTableViewController = navigationController.viewControllers[0] as! CategoryViewController
         categoryTableViewController.dataModel = dataModel
+        categoryTableViewController.orderTemp = orderTemp
         return true
     }
 
