@@ -97,6 +97,8 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         if dish.dishPics.count != 0{
             cell.dishPic.image = UIImage(named: dish.dishPics.first!)
         }
+        cell.reviewsLabel.text = "\(dish.reviews)"+" reviews"
+        cell.reviews.reviews = dish.reviews/200+1
         
         //set up dish's proporty favorite
         let favoriteDishID = Favorite.share.favoriteDishID

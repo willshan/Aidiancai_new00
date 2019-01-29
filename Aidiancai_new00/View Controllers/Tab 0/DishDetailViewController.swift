@@ -78,6 +78,8 @@ class DishDetailViewController: UIViewController {
 extension DishDetailViewController {
     func setupTitle() {
         self.title = dish.dishName
+        self.reviewLabel.text = "\(dish.reviews)"+" reviews"
+        self.reviews.reviews = dish.reviews/200+1
     }
     
     func setupAddButton() {
