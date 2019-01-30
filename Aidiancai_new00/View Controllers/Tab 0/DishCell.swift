@@ -15,7 +15,7 @@ class DishCell: UITableViewCell {
     @IBOutlet weak var favorite: UILabel!
     @IBOutlet weak var reviewsLabel: UILabel!
     @IBOutlet weak var add: UIButton!
-    @IBOutlet weak var reviews: Reviews!
+    @IBOutlet weak var reviews: FavorableRate!
     
     override func awakeFromNib() {
         super.awakeFromNib()

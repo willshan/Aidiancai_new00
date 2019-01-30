@@ -47,8 +47,20 @@ struct AssetsExample {
     static let aogute = "奥古特"
 }
 
+struct RestaurantsExample {
+    static let quanjude = "全聚德"
+    static let baijishuijiao = "白记水饺"
+    static let deyuelou = "得月楼"
+    static let donglaishun = "东来顺"
+    static let guishunzhai = "桂顺斋"
+}
+
 struct DishType {
     static let coldDish = "冷菜"
     static let hotDish = "热菜"
     static let drink = "饮料"
+}
+
+struct StoryboardID {
+    static let dishListViewController = "DishListViewController"
 }

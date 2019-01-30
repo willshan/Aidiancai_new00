@@ -26,8 +26,7 @@ class DishListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //设置tableView至Segmented controller下方
-        dishesTableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+       
         // Do any additional setup after loading the view.
         title = "安排"+mealCatagory+".\(restaurant.name)"
         
@@ -69,6 +68,7 @@ class DishListViewController: UIViewController {
             let viewController = segue.destination as! DishDetailViewController
             let cell = sender as! DishCell
             let index = dishesTableView.indexPath(for: cell)
+            let dishes = getDishesInCatagory()
             viewController.dish = dishes[(index?.row)!]
             viewController.orderTemp = orderTemp
             viewController.dishes = dishes
@@ -98,7 +98,7 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
             cell.dishPic.image = UIImage(named: dish.dishPics.first!)
         }
         cell.reviewsLabel.text = "\(dish.reviews)"+" reviews"
-        cell.reviews.reviews = dish.reviews/200+1
+        cell.reviews.favorableRate = dish.reviews/200+1
         
         //set up dish's proporty favorite
         let favoriteDishID = Favorite.share.favoriteDishID

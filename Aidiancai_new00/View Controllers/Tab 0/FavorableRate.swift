@@ -8,11 +8,11 @@
 
 import UIKit
 
-@IBDesignable class Reviews: UIStackView {
+@IBDesignable class FavorableRate: UIStackView {
     //MARK: Properties
     private var reviewPics = [UIImageView]()
     
-    var reviews = 3 {
+    var favorableRate = 3 {
         didSet {
             setupStars()
         }
@@ -43,13 +43,13 @@ import UIKit
         removeAllStars()
         
         //再重新布置
-        addStars(start: 0, end: reviews, pic: AssetsName.greenStar)
+        addStars(start: 0, end: favorableRate, pic: AssetsName.greenStar)
         
-        if reviews > 4 {
+        if favorableRate > 4 {
             return
         }
         
-        addStars(start: reviews, end: 5, pic: AssetsName.grayStar)
+        addStars(start: favorableRate, end: 5, pic: AssetsName.grayStar)
         
     }
     

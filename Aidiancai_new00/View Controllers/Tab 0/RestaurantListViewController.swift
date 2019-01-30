@@ -29,7 +29,7 @@ class RestaurantListViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let restaurantViewController = segue.destination as! DishListViewController
+        let restaurantViewController = segue.destination as! RestaurantDetailViewController
         if let index = tableView.indexPath(for: sender as! UITableViewCell){
             let restaurant = category.restaurants[index.row]
             

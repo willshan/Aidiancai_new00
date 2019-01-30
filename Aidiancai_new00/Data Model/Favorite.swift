@@ -13,6 +13,7 @@ final class Favorite {
     static let share = Favorite()
 
     var favoriteDishID = [String : String]()
+    var favoriteRestaurantID = [String : String]()
     //init from local disk
     
     private init() {} // Prevent clients from creating another instance.
@@ -28,7 +29,45 @@ final class Favorite {
     }
     
     //remove all
-    func removeAll() {
+    func removeAllDishID() {
         favoriteDishID.removeAll()
+    }
+    //query favoriteDishID
+    func isDishFavorite(dishID : String)->Bool {
+        for dish in favoriteDishID {
+            if dishID == dish.key {
+                return true
+            }
+            else {
+                continue
+            }
+        }
+        return false
+    }
+    //add favoriteRestaurantID
+    func addFavoriteRestaurantID(restaurantID : String) {
+        favoriteRestaurantID[restaurantID] = restaurantID
+    }
+    
+    //delete favoriteRestaurantID
+    func removeFavoriteRestaurantID(restaurantID : String) {
+        favoriteRestaurantID.removeValue(forKey: restaurantID)
+    }
+    
+    //remove all
+    func removeAllRestaurantID() {
+        favoriteRestaurantID.removeAll()
+    }
+    //query favoriteRestaurantID
+    func isRestaurantFavorite(restaurantID : String)->Bool {
+        for restaurant in favoriteRestaurantID {
+            if restaurantID == restaurant.key {
+                return true
+            }
+            else {
+                continue
+            }
+        }
+        return false
     }
 }

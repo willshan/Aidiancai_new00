@@ -11,7 +11,7 @@ import UIKit
 class DishDetailViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var reviews: Reviews!
+    @IBOutlet weak var reviews: FavorableRate!
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var dishIntroduction: UITextView!
@@ -79,7 +79,7 @@ extension DishDetailViewController {
     func setupTitle() {
         self.title = dish.dishName
         self.reviewLabel.text = "\(dish.reviews)"+" reviews"
-        self.reviews.reviews = dish.reviews/200+1
+        self.reviews.favorableRate = dish.reviews/200+1
     }
     
     func setupAddButton() {
