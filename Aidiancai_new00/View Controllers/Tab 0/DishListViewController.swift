@@ -20,9 +20,6 @@ class DishListViewController: UIViewController {
     var restaurant : Restaurant!
     var mealCatagory : String!
     var orderTemp: OrderTemp! //Injection var
-    
-    //dishTemp are dishes and related information, such as count, to be deliverred to confirmDishVC
-//    var dishTemp = [DishTemp]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

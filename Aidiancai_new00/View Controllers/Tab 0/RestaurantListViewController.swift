@@ -77,7 +77,7 @@ class RestaurantListViewController: UITableViewController {
   
     func configureFavorableRate(for cell:UITableViewCell, with restaurant:Restaurant){
       let reviewsLabel = cell.viewWithTag(2103) as! UILabel
-      reviewsLabel.text = "\(restaurant.reviews) reviews"
+      reviewsLabel.text = "\(restaurant.reviews) 人评价"
       //设置星星
       for i in 1...restaurant.favorableRate {
         let starImage = cell.viewWithTag(2200+i) as! UIImageView
@@ -99,15 +99,15 @@ class RestaurantListViewController: UITableViewController {
           logo.image = UIImage(data: logoImageData)
         }
       }else if indexOfRestaurant == 0 {
-        logo.image = UIImage(named: "restaurantNameDonglaishun")
+        logo.image = UIImage(named: RestaurantsExample.donglaishun)
       }else if indexOfRestaurant == 1 {
-        logo.image = UIImage(named: "restaurantNameQuanjude")
+        logo.image = UIImage(named: RestaurantsExample.quanjude)
       }else if indexOfRestaurant == 2 {
-        logo.image = UIImage(named: "restaurantNameBaiji")
+        logo.image = UIImage(named: RestaurantsExample.baijishuijiao)
       }else if indexOfRestaurant == 3 {
-        logo.image = UIImage(named: "restaurantNameGuishunzhai")
+        logo.image = UIImage(named: RestaurantsExample.guishunzhai)
       }else if indexOfRestaurant == 4 {
-        logo.image = UIImage(named: "restaurantNameDeyuelou")
+        logo.image = UIImage(named: RestaurantsExample.deyuelou)
       }
     }
 
