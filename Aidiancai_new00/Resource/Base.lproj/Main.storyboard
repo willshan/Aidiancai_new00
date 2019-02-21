@@ -225,7 +225,6 @@
         <!--Restaurant Detail View Controller-->
         <scene sceneID="U6B-tS-uW7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ceF-d0-HWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="wNm-Dw-Ghh" customClass="RestaurantDetailViewController" customModule="Aidiancai_new00" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="js1-RA-Yc3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -351,8 +350,37 @@
                         <outlet property="segmental" destination="5xd-Zb-qJg" id="Vdb-tt-Aiw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ceF-d0-HWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4351.875" y="-1676.4084507042253"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="lFR-wK-aQK">
+            <objects>
+                <tableViewController id="ymI-JE-Hoq" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y86-ZZ-HkZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uXg-ua-qhd">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uXg-ua-qhd" id="gIu-0F-kKQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ymI-JE-Hoq" id="7vi-VD-Nrq"/>
+                            <outlet property="delegate" destination="ymI-JE-Hoq" id="A3D-1h-DMo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1f-5S-Qmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4326" y="-950"/>
         </scene>
         <!--Dish List View Controller-->
         <scene sceneID="l96-UZ-17j">
