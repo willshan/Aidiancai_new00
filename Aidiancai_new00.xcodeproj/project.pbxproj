@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5CE9B3672144C1D90010E895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B3662144C1D90010E895 /* AppDelegate.swift */; };
-		5CE9B36C2144C1D90010E895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9B36A2144C1D90010E895 /* Main.storyboard */; };
 		5CE9B36E2144C1DA0010E895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9B36D2144C1DA0010E895 /* Assets.xcassets */; };
 		5CE9B3712144C1DA0010E895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9B36F2144C1DA0010E895 /* LaunchScreen.storyboard */; };
 		5CE9B37C2144C1DB0010E895 /* Aidiancai_new00Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B37B2144C1DB0010E895 /* Aidiancai_new00Tests.swift */; };
 		5CE9B3872144C1DB0010E895 /* Aidiancai_new00UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9B3862144C1DB0010E895 /* Aidiancai_new00UITests.swift */; };
 		8202C5CE21F6092200FF3252 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8202C5CD21F6092200FF3252 /* CategoryViewController.swift */; };
 		823336C221F6CB5C00763A49 /* DishDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823336C121F6CB5C00763A49 /* DishDetailViewController.swift */; };
+		823BBF71221EEF72005EEB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9B36A2144C1D90010E895 /* Main.storyboard */; };
 		825696AD21F4533700711BD7 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825696AC21F4533700711BD7 /* OrderViewController.swift */; };
 		825696B121F457C000711BD7 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825696B021F457C000711BD7 /* OrderCell.swift */; };
 		825F65B92201864600930F98 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F65B82201864600930F98 /* RestaurantDetailViewController.swift */; };
@@ -332,9 +332,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				823BBF71221EEF72005EEB28 /* Main.storyboard in Resources */,
 				5CE9B3712144C1DA0010E895 /* LaunchScreen.storyboard in Resources */,
 				5CE9B36E2144C1DA0010E895 /* Assets.xcassets in Resources */,
-				5CE9B36C2144C1D90010E895 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
