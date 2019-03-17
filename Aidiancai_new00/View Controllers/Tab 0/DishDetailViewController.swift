@@ -78,8 +78,8 @@ class DishDetailViewController: UIViewController {
 extension DishDetailViewController {
     func setupTitle() {
         self.title = dish.dishName
-        self.reviewLabel.text = "\(dish.reviews)"+" reviews"
-        self.reviews.favorableRate = dish.reviews/200+1
+        self.reviewLabel.text = dish.reviews + " reviews"
+        self.reviews.favorableRate = 4
     }
     
     func setupAddButton() {
@@ -87,7 +87,7 @@ extension DishDetailViewController {
         addButton.addTarget(self, action: #selector(addOrRemoveDishes(_:)), for: .touchUpInside)
         addButton.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
         addButton.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
-        if orderTemp.isDishSelected(dishID: dish.dishID.value.uuidString) {
+        if orderTemp.isDishSelected(dishID: dish.dishID) {
             addButton.isSelected = true
         }
         else {
@@ -106,7 +106,7 @@ extension DishDetailViewController {
         else {
             sender.isSelected = false
             //remove dishTemp from OrderTemp
-            orderTemp.removeDishTemp(dishID: dish.dishID.value.uuidString)
+            orderTemp.removeDishTemp(dishID: dish.dishID)
         }
     }
 }

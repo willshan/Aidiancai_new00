@@ -9,12 +9,18 @@
 import UIKit
 
 class Category: NSObject, Codable {
-  var name:String
-  var imagePath: URL?
-  var restaurants = [Restaurant]()
-  
-  init(name:String){
-    self.name = name
-    super.init()
-  }
+    var name = ""
+    var imagePath = ""
+    var restaurants = [Restaurant]()
+    
+    init(name:String){
+        self.name = name
+        super.init()
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "categoryName"
+        case imagePath
+        case restaurants
+    }
 }

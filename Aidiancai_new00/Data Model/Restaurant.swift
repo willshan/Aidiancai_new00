@@ -8,12 +8,23 @@
 
 import UIKit
 class Restaurant:NSObject, Codable {
-    let restaurantID = RestaurantID()
+    var restaurantID = RestaurantID().value.uuidString
     var name = ""
     var cuisine = ""
     var favorableRate = 3
     var reviews = 100
-    var logoAddress:URL?
-    var menuList = [MenuID]()
+    var logoAddress = ""
+    var menuList = [MenuList]()
     var introduction = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "restaurantName"
+        case restaurantID
+        case cuisine
+        case favorableRate
+        case reviews
+        case logoAddress
+        case menuList
+        case introduction
+    }
 }

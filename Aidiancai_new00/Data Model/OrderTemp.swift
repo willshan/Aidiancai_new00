@@ -22,7 +22,7 @@ final class OrderTemp {
     
     //add Dish
     func addDishTemp(dish : DishTemp) {
-        let key = dish.dish.dishID.value.uuidString
+        let key = dish.dish.dishID
         dishInOrder[key] = dish
     }
     

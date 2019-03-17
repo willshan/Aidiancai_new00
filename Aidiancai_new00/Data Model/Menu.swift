@@ -8,7 +8,7 @@
 
 import UIKit
 class Menu:NSObject, Codable {
-  let menuID = MenuID()
+  var menuID = MenuID()
   var menuName = ""
   var dishList = [DishID]()
   weak var restaurantID: RestaurantID?

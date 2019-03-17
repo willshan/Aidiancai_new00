@@ -45,6 +45,7 @@ struct AssetsExample {
     static let zhaji = "炸鸡"
     static let zhendingji = "振鼎鸡"
     static let aogute = "奥古特"
+    static let defaultPhoto = "defaultPhoto"
 }
 
 struct RestaurantsExample {
@@ -63,4 +64,6 @@ struct DishType {
 
 struct StoryboardID {
     static let dishListViewController = "DishListViewController"
+    static let restaurantIntroductionViewController = "RestaurantIntroductionViewController"
+    
 }

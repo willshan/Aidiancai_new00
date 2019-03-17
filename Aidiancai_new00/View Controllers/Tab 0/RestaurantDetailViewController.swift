@@ -13,23 +13,31 @@ class RestaurantDetailViewController: UITableViewController {
     @IBOutlet weak var pic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var segmental: UISegmentedControl!
-    @IBOutlet weak var restaurantIntro: UITextView!
-    @IBOutlet weak var favorableRate: FavorableRate!
-    @IBOutlet weak var reviewsLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    
+    
     @IBAction func isFavorite(_ sender: UIButton) {
         if sender.isSelected == true {
             sender.isSelected = false
-            Favorite.share.removeFavoriteRestaurantID(restaurantID: restaurant.restaurantID.value.uuidString)
+            Favorite.share.removeFavoriteRestaurantID(restaurantID: restaurant.restaurantID)
         }
         else {
             sender.isSelected = true
-            Favorite.share.addFavoriteRestaurantID(restaurantID: restaurant.restaurantID.value.uuidString)
+            Favorite.share.addFavoriteRestaurantID(restaurantID: restaurant.restaurantID)
         }
     }
     
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmental.selectedSegmentIndex {
+        case 0:
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let restaurantIntroductionViewController = storyBoard.instantiateViewController(withIdentifier: StoryboardID.restaurantIntroductionViewController) as! RestaurantIntroductionViewController
+            restaurantIntroductionViewController.restaurant = self.restaurant
+            
+            self.replaceController(oldVC: currentVC, newVC: restaurantIntroductionViewController)
+            print("segment index 0 was tapped")
+            
         case 1:
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let dishListViewController = storyBoard.instantiateViewController(withIdentifier: StoryboardID.dishListViewController) as! DishListViewController
@@ -38,7 +46,9 @@ class RestaurantDetailViewController: UITableViewController {
             dishListViewController.restaurant = restaurant
             dishListViewController.mealCatagory = mealCatagory
             dishListViewController.orderTemp = orderTemp
-            self.navigationController?.pushViewController(dishListViewController, animated: true)
+
+            print("segment index 1 was tapped")
+            self.replaceController(oldVC: currentVC, newVC: dishListViewController)
             
         default:
             return
@@ -50,20 +60,24 @@ class RestaurantDetailViewController: UITableViewController {
     var restaurant : Restaurant!
     var mealCatagory : String!
     var orderTemp: OrderTemp! //Injection var
+    var currentVC: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupContaienrView()
+        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
         setupViews()
+        setupNavigationBar(offset: 0)
+        
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-     
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default) //将navigation bar背景设成空白图片
-        self.navigationController?.navigationBar.shadowImage = UIImage() //将navigation bar与view的分界线设成空白图片，不设的话，会有一条线
-//        self.navigationController?.navigationBar.isTranslucent = true
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
+        print("the height of cell is \(UIScreen.main.bounds.height - 40-64)")
+        print("the height of contianer view is \(containerView.frame.height)")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,23 +94,93 @@ class RestaurantDetailViewController: UITableViewController {
         case 1:
             return 40
         case 2:
-            return 300
+            return UIScreen.main.bounds.height - 40-64
         default:
             return 44
         }
     }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        setupNavigationBar(offset: offset)
+    }
+}
+
+extension RestaurantDetailViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
 
 extension RestaurantDetailViewController {
+    func setupContaienrView() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let restaurantIntroductionViewController = storyBoard.instantiateViewController(withIdentifier: StoryboardID.restaurantIntroductionViewController) as! RestaurantIntroductionViewController
+        restaurantIntroductionViewController.restaurant = self.restaurant
+        
+        self.addChildViewController(restaurantIntroductionViewController)
+        restaurantIntroductionViewController.view.frame = containerView.frame
+        self.containerView.addSubview(restaurantIntroductionViewController.view)
+        restaurantIntroductionViewController.didMove(toParentViewController: self)
+            
+        currentVC = restaurantIntroductionViewController
+    }
+    
+    func replaceController(oldVC : UIViewController, newVC : UIViewController) {
+        print("func replaceController was used")
+        // Prepare the two view controllers for the change
+        oldVC.willMove(toParentViewController: nil)
+        self.addChildViewController(newVC)
+        
+        // Get the start frame of the new view controller and the end frame
+        // for the old view controller. Both rectangles are offscreen.
+        newVC.view.frame = self.containerView.frame
+        let endFrame = self.containerView.frame
+       
+        self.transition(from: oldVC, to: newVC, duration: 0.5, options: [], animations: {
+            // Animate the views to their final positions.
+            newVC.view.frame = oldVC.view.frame
+            oldVC.view.frame = endFrame
+            
+        }) { (success) in
+            if success {
+                print("success")
+                oldVC.removeFromParentViewController()
+                newVC.didMove(toParentViewController: self)
+                self.currentVC = newVC
+            }
+            else {
+                print("fail")
+                self.currentVC = oldVC
+            }
+        }
+    }
+    
+    func setupNavigationBar(offset:CGFloat) {
+        let offsetTotal = pic.frame.height-64
+        if offset<offsetTotal {
+            //滑倒顶部之前
+            let coloralph = offset/offsetTotal
+            pic.alpha = 1 - coloralph
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default) //将navigation bar背景设成空白图片
+            self.navigationController?.navigationBar.shadowImage = UIImage() //将navigation bar与view的分界线设成空白图片，不设的话，会有一条线
+            
+            self.title = ""
+        }else{
+            //滑动超过导航栏底部
+            self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+            self.title = restaurant.name
+        }
+    }
+    
     func setupViews() {
-        favorableRate.favorableRate = restaurant.favorableRate
-        reviewsLabel.text = "\(restaurant.reviews)"+"人评价"
+//        favorableRate.favorableRate = restaurant.favorableRate
+//        reviewsLabel.text = "\(restaurant.reviews)"+"人评价"
         nameLabel.text = restaurant.name
-        restaurantIntro.text = restaurant.introduction
+//        restaurantIntro.text = restaurant.introduction
         
         favoriteButton.setTitle("已收藏", for: .selected)
         favoriteButton.setTitle("未收藏", for: .normal)
-        if Favorite.share.isRestaurantFavorite(restaurantID: restaurant.restaurantID.value.uuidString) {
+        if Favorite.share.isRestaurantFavorite(restaurantID: restaurant.restaurantID) {
             favoriteButton.isSelected = true
         }
         else {
@@ -109,7 +193,7 @@ extension RestaurantDetailViewController {
         let width = UIScreen.main.bounds.width
         let height = (UIScreen.main.bounds.height - 64)/3
         pic.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        pic.image = UIImage(named: restaurant.name)
+        pic.image = UIImage(named: restaurant.name) ?? UIImage(named: AssetsExample.defaultPhoto)
     }
 }
 /*

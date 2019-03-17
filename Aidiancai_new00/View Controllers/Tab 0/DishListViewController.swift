@@ -20,7 +20,7 @@ class DishListViewController: UIViewController {
     var restaurant : Restaurant!
     var mealCatagory : String!
     var orderTemp: OrderTemp! //Injection var
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -28,8 +28,8 @@ class DishListViewController: UIViewController {
         title = "安排"+mealCatagory+".\(restaurant.name)"
         
         //check the restaurant is orderred, if yes load order, if no clear old order and creat new empty
-        guard orderTemp.restaurantID == restaurant.restaurantID.value.uuidString else {
-            orderTemp.restaurantID = restaurant.restaurantID.value.uuidString
+        guard orderTemp.restaurantID == restaurant.restaurantID else {
+            orderTemp.restaurantID = restaurant.restaurantID
             orderTemp.removeAll()
             orderTemp.comment = ""
             return
@@ -94,14 +94,14 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         if dish.dishPics.count != 0{
             cell.dishPic.image = UIImage(named: dish.dishPics.first!)
         }
-        cell.reviewsLabel.text = "\(dish.reviews)"+" reviews"
-        cell.reviews.favorableRate = dish.reviews/200+1
+        cell.reviewsLabel.text = dish.reviews
+        cell.reviews.favorableRate = 4
         
         //set up dish's proporty favorite
         let favoriteDishID = Favorite.share.favoriteDishID
         cell.favorite.isHidden = true
         for dishID in favoriteDishID {
-            if dishID.key == dish.dishID.value.uuidString {
+            if dishID.key == dish.dishID {
                 cell.favorite.isHidden = false
                 break
             }
@@ -110,7 +110,7 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
         //set up dish's property isSelected
         cell.add.setImage(UIImage(named: AssetsName.addIcon), for: .normal)
         cell.add.setImage(UIImage(named: AssetsName.checkIcon), for: .selected)
-        cell.add.isSelected = orderTemp.isDishSelected(dishID: dish.dishID.value.uuidString)
+        cell.add.isSelected = orderTemp.isDishSelected(dishID: dish.dishID)
 
         //set up add button func
         cell.add.addTarget(self, action: #selector(addOrRemoveDishes(_:)), for: .touchUpInside)
@@ -127,6 +127,16 @@ extension DishListViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //禁止dishTableView弹性
+        if scrollView == dishesTableView {
+            let offset = scrollView.contentOffset.y
+            if offset < 0 {
+                scrollView.contentOffset = CGPoint.zero
+            }
+        }
+    }
 }
 
 extension DishListViewController {
@@ -138,7 +148,7 @@ extension DishListViewController {
             if let tableView = view as? UITableView {
                 let index = tableView.indexPath(for: cell)!
                 let dishID = dishes[(index.row)].dishID
-                return dishID.value.uuidString
+                return dishID
             }
         }
         return nil
@@ -173,7 +183,7 @@ extension DishListViewController {
             //remove dishTemp from OrderTemp
             let cell = sender.superview?.superview?.superview as! DishCell
             let dish = getDishFromCell(cell: cell)
-            orderTemp.removeDishTemp(dishID: (dish?.dishID.value.uuidString)!)
+            orderTemp.removeDishTemp(dishID: (dish?.dishID)!)
         }
     }
 }

@@ -80,7 +80,7 @@ import UIKit
             //以下两个是将Imageview的高度和宽度，设置成和star的高度宽度一致。
             imageView.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             imageView.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
-            
+           
             // Add the Imageview to the stack
             addArrangedSubview(imageView)
             

@@ -47,7 +47,6 @@ class CategoryViewController: UITableViewController {
       let restaurantListTableViewController = segue.destination as! RestaurantListViewController
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
         restaurantListTableViewController.category = dataModel.categories[indexPath.row]
-        restaurantListTableViewController.dishes = dataModel.dishes //fake data
         restaurantListTableViewController.orderTemp = orderTemp
       }
     }
@@ -65,17 +64,17 @@ class CategoryViewController: UITableViewController {
     }
 
     func configureImage(for cell:UITableViewCell, with category:Category){
-      let imageView = cell.viewWithTag(1000) as! UIImageView
-      let index = dataModel.categories.index(of: category)
-      
-      if let imagePath = category.imagePath, let data = try? Data(contentsOf: imagePath) {
-        imageView.image = UIImage(data: data)
-      }else if index == 0 {
-        imageView.image = UIImage(named: "categoryBreakfast")
-      }else if index == 1 {
-        imageView.image = UIImage(named: "categoryLunch")
-      }else if index == 2 {
-        imageView.image = UIImage(named: "categorySnack")
-      }
+        let imageView = cell.viewWithTag(1000) as! UIImageView
+        let index = dataModel.categories.index(of: category)
+        
+        if let imagePath = URL(string: category.imagePath), let data = try? Data(contentsOf: imagePath) {
+            imageView.image = UIImage(data: data)
+        }else if index == 0 {
+            imageView.image = UIImage(named: "categoryBreakfast")
+        }else if index == 1 {
+            imageView.image = UIImage(named: "categoryLunch")
+        }else if index == 2 {
+            imageView.image = UIImage(named: "categorySnack")
+        }
     }
 }

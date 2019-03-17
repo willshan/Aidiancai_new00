@@ -10,17 +10,20 @@ import UIKit
 
 class RestaurantListViewController: UITableViewController {
     var category: Category!
-    var dishes: [Dish]! //fake var
     var orderTemp: OrderTemp! //Injection var
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-      if category.name == "早餐" {
-        title = "早点铺"
-      }else {
-        title = category.name + "店家"
-      }
+        
+        //设置下一级j页面不显示返回文字
+        let backItem = UIBarButtonItem.init(title: "", style: .done, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backItem
+        
+        if category.name == "早餐" {
+            title = "早点铺"
+        }else {
+            title = category.name + "店家"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +36,7 @@ class RestaurantListViewController: UITableViewController {
         if let index = tableView.indexPath(for: sender as! UITableViewCell){
             let restaurant = category.restaurants[index.row]
             
-            restaurantViewController.dishes = dishes
+            restaurantViewController.dishes = restaurant.menuList[0].dishList
             restaurantViewController.restaurant = restaurant
             restaurantViewController.mealCatagory = category.name
             restaurantViewController.orderTemp = orderTemp
@@ -93,22 +96,13 @@ class RestaurantListViewController: UITableViewController {
   
     func configureLogo(for cell:UITableViewCell, with restaurant:Restaurant){
       let logo = cell.viewWithTag(2300) as! UIImageView
-      let indexOfRestaurant = category.restaurants.index(of: restaurant)
-      if let logoAddress = restaurant.logoAddress {
+      if let logoAddress = URL(string: restaurant.logoAddress) {
         if let logoImageData = try? Data(contentsOf: logoAddress){
           logo.image = UIImage(data: logoImageData)
         }
-      }else if indexOfRestaurant == 0 {
-        logo.image = UIImage(named: RestaurantsExample.donglaishun)
-      }else if indexOfRestaurant == 1 {
-        logo.image = UIImage(named: RestaurantsExample.quanjude)
-      }else if indexOfRestaurant == 2 {
-        logo.image = UIImage(named: RestaurantsExample.baijishuijiao)
-      }else if indexOfRestaurant == 3 {
-        logo.image = UIImage(named: RestaurantsExample.guishunzhai)
-      }else if indexOfRestaurant == 4 {
-        logo.image = UIImage(named: RestaurantsExample.deyuelou)
+        else {
+            logo.image = UIImage(named: restaurant.name) ?? UIImage(named: AssetsExample.defaultPhoto)
+        }
       }
     }
-
 }
